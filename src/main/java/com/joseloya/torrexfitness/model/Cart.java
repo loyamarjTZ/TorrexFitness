@@ -1,6 +1,7 @@
 package com.joseloya.torrexfitness.model;
 
 import com.sun.istack.NotNull;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -16,7 +17,6 @@ public class Cart{
 
     @Column
     @NotNull
-    @Size(min=1, max=30)
     private int customerId;
 
     public Cart() {

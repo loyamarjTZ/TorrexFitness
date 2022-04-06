@@ -19,12 +19,12 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    // display list of products
-//    @GetMapping("/")
-//    public String viewHomePage(Model model) {
-//        model.addAttribute("listProducts", productService.getAllProducts());
-//        return "index";
-//    }
+     //display list of products
+    @GetMapping("/")
+    public String viewHomePage(Model model) {
+        model.addAttribute("listProducts", productService.getAllProducts());
+        return "index";
+    }
 
     @GetMapping("/showNewProductForm")
     public String showNewProductForm(Model model) {

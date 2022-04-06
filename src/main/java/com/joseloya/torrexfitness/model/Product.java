@@ -1,6 +1,7 @@
 package com.joseloya.torrexfitness.model;
 
 import com.sun.istack.NotNull;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -25,7 +26,8 @@ public class Product {
 
     @Column
     @NotNull
-    @Size(min=1, max=10)
+//    @Size(min=1, max=10)
+    @Range(min = 0L, max = 10000)
     private double price;
 
     @Column
