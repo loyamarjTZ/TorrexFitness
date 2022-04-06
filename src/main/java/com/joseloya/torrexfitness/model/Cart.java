@@ -8,8 +8,8 @@ import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
-@Table(name="carts")
-public class Cart{
+@Table(name = "carts")
+public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

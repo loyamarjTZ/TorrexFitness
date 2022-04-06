@@ -15,47 +15,47 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @Controller
 public class TorrexFitnessController {
 
-//    spring security mappings
+    //spring security mappings
     @GetMapping("/login")
     public String viewHomePageFirstTimeViaSecurity() {
         return "login";
     }
 
     @RequestMapping("/login")
-    public String viewHomePageAgainViaSecurity(){
+    public String viewHomePageAgainViaSecurity() {
         return "login";
     }
 
     @GetMapping("/logout")
-    public String logout(HttpServletRequest request){
+    public String logout(HttpServletRequest request) {
         HttpSession httpSession = request.getSession();
         httpSession.invalidate();
         return "redirect:/";
     }
 
-//    original project mappings
+    //original project mappings
     @GetMapping("/home")
     public String viewHomePageFirstTime() {
         return "indexTF";
     }
 
     @RequestMapping("/home")
-    public String viewHomePageAgain(){
+    public String viewHomePageAgain() {
         return "indexTF";
     }
 
     @RequestMapping("/sign-in")
-    public String viewSignInPage(){
+    public String viewSignInPage() {
         return "sign-in";
     }
 
     @RequestMapping("/register")
-    public String viewRegisterPage(){
+    public String viewRegisterPage() {
         return "register";
     }
 
     @RequestMapping("/cart")
-    public String viewCartPage(){
+    public String viewCartPage() {
         return "cart";
     }
 

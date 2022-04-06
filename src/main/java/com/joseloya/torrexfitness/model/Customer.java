@@ -15,22 +15,22 @@ public class Customer {
 
     @Column
     @NotNull
-    @Size(min=1, max=30)
+    @Size(min = 1, max = 30)
     private String firstName;
 
     @Column
     @NotNull
-    @Size(min=1, max=30)
+    @Size(min = 1, max = 30)
     private String lastName;
 
     @Column
     @NotNull
-    @Size(min=3, max=50)
+    @Size(min = 3, max = 50)
     private String email;
 
     @Column
     @NotNull
-    @Size(min=1, max=50)
+    @Size(min = 1, max = 50)
     private String password;
 
     public Customer() {

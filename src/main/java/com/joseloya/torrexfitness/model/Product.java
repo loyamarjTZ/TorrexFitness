@@ -16,12 +16,12 @@ public class Product {
 
     @Column
     @NotNull
-    @Size(min=1, max=30)
+    @Size(min = 1, max = 30)
     private String name;
 
     @Column
     @NotNull
-    @Size(min=1, max=500)
+    @Size(min = 1, max = 500)
     private String description;
 
     @Column
@@ -32,10 +32,10 @@ public class Product {
 
     @Column
     @NotNull
-    @Size(min=1, max=500)
+    @Size(min = 1, max = 500)
     private String filename;
 
-    public Product(){
+    public Product() {
     }
 
     public Product(long id, String name, String description, double price, String filename) {

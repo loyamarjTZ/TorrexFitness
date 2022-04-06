@@ -9,23 +9,23 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductRepository productRepository;
 
     @Override
-    public List<Product> getAllProducts(){
+    public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
     @Override
-    public void saveProduct(Product product){
+    public void saveProduct(Product product) {
         this.productRepository.save(product);
     }
 
     @Override
-    public Product getProductById(long id){
+    public Product getProductById(long id) {
         Optional<Product> optional = productRepository.findById(id);
         Product product = null;
         if (optional.isPresent()) {

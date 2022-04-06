@@ -19,7 +19,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-     //display list of products
+    //display list of products
     @GetMapping("/")
     public String viewHomePage(Model model) {
         model.addAttribute("listProducts", productService.getAllProducts());
@@ -36,7 +36,7 @@ public class ProductController {
 
     @PostMapping("/saveProduct")
     public String saveProduct(@ModelAttribute("product") @Valid Product product, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             return "new_product";
         }
         // save product to database
