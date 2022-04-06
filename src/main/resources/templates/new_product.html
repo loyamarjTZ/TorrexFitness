@@ -14,12 +14,18 @@
     <h2>Save Product</h2>
 
     <form action="#" th:action="@{/saveProduct}" th:object="${product}" method="POST">
+
+        <!--    insert error handlers here-->
+        <div th:if="${#fields.hasErrors('filename')}" th:errors="*{filename}">filename error</div>
         <input type="text" th:field="*{filename}" placeholder="Product Image" class="form-control mb-4 col-3">
 
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name error</div>
         <input type="text" th:field="*{name}" placeholder="Product Name" class="form-control mb-4 col-3">
 
+        <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}">description error</div>
         <input type="text" th:field="*{description}" placeholder="Product Description" class="form-control mb-4 col-3">
 
+        <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}">price error</div>
         <input type="text" th:field="*{price}" placeholder="Product Price" class="form-control mb-4 col-3">
 
         <button type="submit" class="btn btn-info col-2"> Save Product</button>

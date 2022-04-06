@@ -5,10 +5,13 @@ import com.joseloya.torrexfitness.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 @Controller
 public class ProductController {
@@ -17,11 +20,11 @@ public class ProductController {
     private ProductService productService;
 
     // display list of products
-    @GetMapping("/")
-    public String viewHomePage(Model model) {
-        model.addAttribute("listProducts", productService.getAllProducts());
-        return "index";
-    }
+//    @GetMapping("/")
+//    public String viewHomePage(Model model) {
+//        model.addAttribute("listProducts", productService.getAllProducts());
+//        return "index";
+//    }
 
     @GetMapping("/showNewProductForm")
     public String showNewProductForm(Model model) {
@@ -32,7 +35,10 @@ public class ProductController {
     }
 
     @PostMapping("/saveProduct")
-    public String saveProduct(@ModelAttribute("product") Product product) {
+    public String saveProduct(@ModelAttribute("product") @Valid Product product, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()){
+            return "new_product";
+        }
         // save product to database
         productService.saveProduct(product);
         return "redirect:/";

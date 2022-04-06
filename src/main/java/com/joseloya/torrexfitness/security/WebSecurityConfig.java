@@ -21,10 +21,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
                     .mvcMatchers("/login").permitAll()
 //                     Order is important from here on.
 //                     the order from top to bottom is: specific access to generic access.
-                    .mvcMatchers("/deleteEmployee/**").hasAnyRole("SUPERADMIN")
+                    .mvcMatchers("/deleteProduct/**").hasAnyRole("SUPERADMIN")
                     .mvcMatchers("/showFormForUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
-                    .mvcMatchers("/showEmployeeForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
-                    .mvcMatchers("/saveEmployee/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                    .mvcMatchers("/showProductForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                    .mvcMatchers("/saveProduct/**").hasAnyRole("ADMIN", "SUPERADMIN")
                     .mvcMatchers("/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
                     .anyRequest().authenticated()
                     .and()
