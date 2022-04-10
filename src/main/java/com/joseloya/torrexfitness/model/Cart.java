@@ -1,10 +1,7 @@
 package com.joseloya.torrexfitness.model;
 
 import com.sun.istack.NotNull;
-import org.hibernate.validator.constraints.Range;
-
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -17,14 +14,19 @@ public class Cart {
 
     @Column
     @NotNull
-    private int customerId;
+    private int userId;
 
-    public Cart() {
-    }
+    @Column
+    private double subTotal;
 
-    public Cart(int id, int customerId) {
-        this.id = id;
-        this.customerId = customerId;
+    @Column
+    private double tax;
+
+    @Column
+    private double total;
+
+    public Cart(){
+
     }
 
     public int getId() {
@@ -35,12 +37,36 @@ public class Cart {
         this.id = id;
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public double getSubTotal() {
+        return subTotal;
+    }
+
+    public void setSubTotal(double subTotal) {
+        this.subTotal = subTotal;
+    }
+
+    public double getTax() {
+        return tax;
+    }
+
+    public void setTax(double tax) {
+        this.tax = tax;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 
     @Override
@@ -48,19 +74,22 @@ public class Cart {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cart cart = (Cart) o;
-        return id == cart.id && customerId == cart.customerId;
+        return id == cart.id && userId == cart.userId && Double.compare(cart.subTotal, subTotal) == 0 && Double.compare(cart.tax, tax) == 0 && Double.compare(cart.total, total) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, customerId);
+        return Objects.hash(id, userId, subTotal, tax, total);
     }
 
     @Override
     public String toString() {
         return "Cart{" +
                 "id=" + id +
-                ", customerId=" + customerId +
+                ", userId=" + userId +
+                ", subTotal=" + subTotal +
+                ", tax=" + tax +
+                ", total=" + total +
                 '}';
     }
 }

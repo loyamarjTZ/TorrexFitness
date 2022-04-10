@@ -7,11 +7,12 @@ import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
-@Table(name = "customers")
-public class Customer {
+@Table(name = "users")
+
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column
     @NotNull
@@ -33,10 +34,10 @@ public class Customer {
     @Size(min = 1, max = 50)
     private String password;
 
-    public Customer() {
+    public User() {
     }
 
-    public Customer(int id, String firstName, String lastName, String email, String password) {
+    public User(long id, String firstName, String lastName, String email, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -44,7 +45,7 @@ public class Customer {
         this.password = password;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -88,8 +89,8 @@ public class Customer {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Customer customer = (Customer) o;
-        return id == customer.id && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(email, customer.email) && Objects.equals(password, customer.password);
+        User user = (User) o;
+        return id == user.id && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(password, user.password);
     }
 
     @Override
@@ -99,7 +100,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

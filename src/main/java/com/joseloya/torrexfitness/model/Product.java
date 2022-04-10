@@ -10,6 +10,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "products")
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -33,17 +34,17 @@ public class Product {
     @Column
     @NotNull
     @Size(min = 1, max = 500)
-    private String filename;
+    private String imageUrl;
 
     public Product() {
     }
 
-    public Product(long id, String name, String description, double price, String filename) {
+    public Product(long id, String name, String description, double price, String imageUrl) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.filename = filename;
+        this.imageUrl = imageUrl;
     }
 
     public long getId() {
@@ -78,12 +79,12 @@ public class Product {
         this.price = price;
     }
 
-    public String getFilename() {
-        return filename;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     @Override
@@ -91,12 +92,12 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return id == product.id && Double.compare(product.price, price) == 0 && Objects.equals(name, product.name) && Objects.equals(description, product.description) && Objects.equals(filename, product.filename);
+        return id == product.id && Double.compare(product.price, price) == 0 && Objects.equals(name, product.name) && Objects.equals(description, product.description) && Objects.equals(imageUrl, product.imageUrl);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, price, filename);
+        return Objects.hash(id, name, description, price, imageUrl);
     }
 
     @Override
@@ -106,7 +107,7 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", filename='" + filename + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 }
