@@ -13,17 +13,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class UserController {
 
-    @Autowired
     private UserService userService;
+
+    @Autowired
+    public UserController(UserService userService){
+        this.userService = userService;
+    }
 
     // display list of users
     @GetMapping("/")
-    public String viewHomePage(Model model) {
+    public String getAllUsers(Model model) {
         model.addAttribute("listUsers", userService.getAllUsers());
-        return "index";
+        return "all_users";
     }
 
-    @GetMapping("/showNewUserForm")
+    @GetMapping("/showNewUserFormUser")
     public String showNewUserForm(Model model) {
         // create model attribute to bind form data
         User user = new User();

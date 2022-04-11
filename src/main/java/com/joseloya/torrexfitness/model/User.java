@@ -10,6 +10,7 @@ import java.util.Objects;
 @Table(name = "users")
 
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
