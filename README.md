@@ -1,14 +1,25 @@
-# TEKsystems Capstone Project
-## Torrex Fitness Spring Boot Application
-### Table of Contents:
-* About this App
+# TEKsystems Capstone Project: Torrex Fitness
+## Table of Contents
 * Daily Progress Reports
+* About this App
 
-### About this App:
-#### What is Torrex Fitness?
+## Progress Reports
+### 4/12/22 - Completion Status: 40%
+* improved User and Product Controllers
+* finished CRUD operations for User and Products models
+* created home page for Admin and SuperAdmin (needs styling)
+* received help from Ryan and improved transitions from one page to another using Thymeleaf
+
+### 4/11/22 - Completion Status: 30%
+* redesigned the models of my app. Still a work in progress.
+* rewrote some and still implementing all CRUD functions 
+* received help from Ryan and Corey regarding security
+
+## About this App
+### What is Torrex Fitness?
 * Torrex Fitness is a simple Ecommerce application that sells gym equipment.
 
-#### What can it do?
+### What can it do?
 * Users will be able to:
   * create an account
   * sign in to their account
@@ -27,12 +38,4 @@
   * have the same functionality as an Admin
   * delete users from the user list
   * delete products from the product list
-
-### Progress Reports:
-
-### 4/11/22
-* Project Completion Status: 30%
-* redesigned the models of my app. Still a work in progress.
-* rewrote some and still implementing all CRUD functions 
-* received help from Ryan and Corey regarding security
 
