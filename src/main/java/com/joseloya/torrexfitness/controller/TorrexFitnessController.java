@@ -17,7 +17,7 @@ public class TorrexFitnessController {
 //    }
 //
     @RequestMapping("/login")
-    public String viewHomePageAgainViaSecurity() {
+    public String viewSecurityLogin() {
         return "login";
     }
 
