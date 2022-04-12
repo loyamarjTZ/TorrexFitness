@@ -31,20 +31,15 @@ public class Product {
     @Range(min = 0L, max = 10000)
     private double price;
 
-    @Column
-    @NotNull
-    @Size(min = 1, max = 500)
-    private String imageUrl;
-
     public Product() {
     }
 
-    public Product(long id, String name, String description, double price, String imageUrl) {
+    public Product(long id, String name, String description, double price) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.imageUrl = imageUrl;
+
     }
 
     public long getId() {
@@ -79,25 +74,17 @@ public class Product {
         this.price = price;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return id == product.id && Double.compare(product.price, price) == 0 && Objects.equals(name, product.name) && Objects.equals(description, product.description) && Objects.equals(imageUrl, product.imageUrl);
+        return id == product.id && Double.compare(product.price, price) == 0 && Objects.equals(name, product.name) && Objects.equals(description, product.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, price, imageUrl);
+        return Objects.hash(id, name, description, price);
     }
 
     @Override
@@ -107,7 +94,6 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 }

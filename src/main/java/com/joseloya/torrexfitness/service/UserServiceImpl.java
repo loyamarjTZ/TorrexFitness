@@ -27,12 +27,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(long id) {
-        Optional < User > optional = userRepository.findById(id);
+        Optional <User> optional = userRepository.findById(id);
         User user = null;
         if (optional.isPresent()) {
             user = optional.get();
         } else {
-            throw new RuntimeException(" User not found for id :: " + id);
+            throw new RuntimeException("User not found for id: " + id);
         }
         return user;
     }
