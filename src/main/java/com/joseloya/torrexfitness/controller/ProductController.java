@@ -42,8 +42,8 @@ public class ProductController {
         return "redirect:/index_products";
     }
 
-    @GetMapping("/showFormForUpdate/{id}")
-    public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+    @GetMapping("/showFormForProductUpdate/{id}")
+    public String showFormForProductUpdate(@PathVariable(value = "id") long id, Model model) {
         Product product = productService.getProductById(id);
         model.addAttribute("product", product);
         return "update_product";
@@ -52,7 +52,7 @@ public class ProductController {
     @GetMapping("/deleteProduct/{id}")
     public String deleteProduct(@PathVariable(value = "id") long id) {
         this.productService.deleteProductById(id);
-        return "redirect:/";
+        return "redirect:/all_products";
     }
 }
 

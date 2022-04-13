@@ -1,11 +1,10 @@
 package com.joseloya.torrexfitness.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "cart_items")
 public class CartItem {
 
     @Id
@@ -13,47 +12,23 @@ public class CartItem {
     private long id;
 
     @Column
-    private long cartId;
-
-    @Column
     private long productId;
 
     @Column
     private int quantity;
 
+    @ManyToOne
+    @JoinColumn(name="cartId", nullable=false)
+    private Cart cart;
+
     public CartItem() {
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
+    public CartItem(long id, long productId, int quantity, Cart cart) {
         this.id = id;
-    }
-
-    public long getCartId() {
-        return cartId;
-    }
-
-    public void setCartId(long cartId) {
-        this.cartId = cartId;
-    }
-
-    public long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(long productId) {
         this.productId = productId;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
         this.quantity = quantity;
+        this.cart = cart;
     }
 
     @Override
@@ -61,21 +36,21 @@ public class CartItem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CartItem cartItem = (CartItem) o;
-        return id == cartItem.id && cartId == cartItem.cartId && productId == cartItem.productId && quantity == cartItem.quantity;
+        return id == cartItem.id && productId == cartItem.productId && quantity == cartItem.quantity && Objects.equals(cart, cartItem.cart);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cartId, productId, quantity);
+        return Objects.hash(id, productId, quantity, cart);
     }
 
     @Override
     public String toString() {
         return "CartItem{" +
                 "id=" + id +
-                ", cartId=" + cartId +
                 ", productId=" + productId +
                 ", quantity=" + quantity +
+                ", cart=" + cart +
                 '}';
     }
 }

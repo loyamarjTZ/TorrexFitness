@@ -2,7 +2,9 @@ package com.joseloya.torrexfitness.model;
 
 import com.sun.istack.NotNull;
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "carts")
@@ -16,17 +18,16 @@ public class Cart {
     @NotNull
     private int userId;
 
-    @Column
-    private double subTotal;
-
-    @Column
-    private double tax;
-
-    @Column
-    private double total;
+    @OneToMany(mappedBy = "cart")
+    private Set<CartItem> cartItemList;
 
     public Cart(){
+    }
 
+    public Cart(int id, int userId, Set<CartItem> cartItemList) {
+        this.id = id;
+        this.userId = userId;
+        this.cartItemList = cartItemList;
     }
 
     public int getId() {
@@ -45,28 +46,12 @@ public class Cart {
         this.userId = userId;
     }
 
-    public double getSubTotal() {
-        return subTotal;
+    public Set<CartItem> getCartItemList() {
+        return cartItemList;
     }
 
-    public void setSubTotal(double subTotal) {
-        this.subTotal = subTotal;
-    }
-
-    public double getTax() {
-        return tax;
-    }
-
-    public void setTax(double tax) {
-        this.tax = tax;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
+    public void setCartItemList(Set<CartItem> cartItemList) {
+        this.cartItemList = cartItemList;
     }
 
     @Override
@@ -74,12 +59,12 @@ public class Cart {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cart cart = (Cart) o;
-        return id == cart.id && userId == cart.userId && Double.compare(cart.subTotal, subTotal) == 0 && Double.compare(cart.tax, tax) == 0 && Double.compare(cart.total, total) == 0;
+        return id == cart.id && userId == cart.userId && Objects.equals(cartItemList, cart.cartItemList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, subTotal, tax, total);
+        return Objects.hash(id, userId, cartItemList);
     }
 
     @Override
@@ -87,9 +72,7 @@ public class Cart {
         return "Cart{" +
                 "id=" + id +
                 ", userId=" + userId +
-                ", subTotal=" + subTotal +
-                ", tax=" + tax +
-                ", total=" + total +
+                ", cartItemList=" + cartItemList +
                 '}';
     }
 }

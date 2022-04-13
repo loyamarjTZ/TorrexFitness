@@ -15,16 +15,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // @formatter:off
         //authorizeRequests() is where you can specify user access authorizations
-        //               TODO - define showFormForUserUpdate vs showFormForProductUpdate?
         http.authorizeRequests()
                 .mvcMatchers("/login").permitAll()
                 .mvcMatchers("/deleteProduct/**").hasAnyRole("SUPERADMIN")
                 .mvcMatchers("/deleteUser/**").hasAnyRole("SUPERADMIN")
+                .mvcMatchers("/deleteCart/**").hasAnyRole("SUPERADMIN")
+                .mvcMatchers("/showFormForProductUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
                 .mvcMatchers("/showFormForUserUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                .mvcMatchers("/showFormForCartUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
                 .mvcMatchers("/showProductForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
                 .mvcMatchers("/showUserForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                .mvcMatchers("/showCartForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
                 .mvcMatchers("/saveProduct/**").hasAnyRole("ADMIN", "SUPERADMIN")
                 .mvcMatchers("/saveUser/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                .mvcMatchers("/saveCart/**").hasAnyRole("ADMIN", "SUPERADMIN")
                 .mvcMatchers("/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
                 .anyRequest().authenticated()
                 .and()

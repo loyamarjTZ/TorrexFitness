@@ -2,13 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Sign in</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8"/>
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <!-- Bootstrap CSS v5.0.2 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -32,14 +27,12 @@
             >
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div
-                    class="collapse navbar-collapse justify-content-center"
-                    id="navbarNavAltMarkup"
-            >
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                 <a class="navbar-brand" href="./indexTF.html">
-                    <img src="../image/logo/tower.png" alt="" class="mb-2"/> Torrex
-                    Fitness</a
-                >
+                    <img src="../static/images/tower.png"
+                         th:src="@{images/tower.png}"
+                         alt="tower image"
+                         class="mb-2"/> Torrex Fitness</a>
 <!--                <div class="navbar-nav ms-auto">-->
 <!--                    <a class="nav-link" th:href="@{/home}">Home</a>-->
 <!--                    <a class="nav-link active" th:href="@{/sign-in}">Sign in</a>-->
@@ -55,71 +48,63 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6 px-0 d-none d-sm-block">
-                <img
-                        src="../image/login/fist-bump-flipped.jpg"
-                        alt="Login image"
-                        class="w-100 vh-100"
-                        style="object-fit: cover; object-position: left"
+                <img src="../static/images/fist-bump-flipped.jpg"
+                     th:src="@{images/fist-bump-flipped.jpg}"
+                     alt="Login image"
+                     class="w-100 vh-100"
+                     style="object-fit: cover; object-position: left"
                 />
             </div>
             <div class="col-sm-6 text-black">
-                <div
-                        class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5"
-                >
+                <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
                     <!-- begin sign in form -->
-                    <form style="width: 23rem" onsubmit="">
-                        <h3
-                                class="fw-normal mb-3 pb-3 mt-3"
-                                style="letter-spacing: 1px"
-                        >
-                            Sign in
-                        </h3>
-                        <div class="form-outline mb-4">
-                            <input
-                                    type="email"
-                                    id="sign-in-email"
-                                    class="form-control form-control-lg"
-                                    required
-                            />
-                            <!--for="form2Example18"-->
-                            <label class="form-label">
-                                Email address
-                            </label>
-                        </div>
-                        <div class="form-outline mb-3">
-                            <input
-                                    type="password"
-                                    id="form2Example28"
-                                    class="form-control form-control-lg"
-                                    required
-                            />
-                            <label class="form-label" for="form2Example28">
-                                Password
-                            </label>
-                        </div>
-                        <div class="pt-1 mb-4">
-                            <button
-                                    class="btn btn-warning btn-lg btn-block"
-                                    type="submit"
-                                    onsubmit="validateSignInEmail()"
-                            >
-                                Sign in
-                            </button>
-                        </div>
-                        <p class="mt-4">
-<!--                            TODO - Incorporate user registration package from 4/12/22"-->
-                            Don't have an account?
-                            <a href="./register.html" class="link-info">Register here</a>
-                        </p>
-                    </form>
+<!--                    <form style="width: 23rem" onsubmit="">-->
+<!--                    <form th:action="@{/login}" style="width: 23rem" method="post">-->
+<!--                        <h3 class="fw-normal mb-3 pb-3 mt-3" style="letter-spacing: 1px"> Sign in </h3>-->
+<!--                        <div class="form-outline mb-4">-->
+<!--                            <input-->
+<!--                                    type="text"-->
+<!--                                    id="sign-in-email"-->
+<!--                                    class="form-control form-control-lg"-->
+<!--                                    required-->
+<!--                            />-->
+<!--                            <label class="form-label"> Email address </label>-->
+<!--                        </div>-->
+<!--                        <div class="form-outline mb-3">-->
+<!--                            <input-->
+<!--                                    type="password"-->
+<!--                                    id="form2Example28"-->
+<!--                                    class="form-control form-control-lg"-->
+<!--                                    required-->
+<!--                            />-->
+<!--                            <label class="form-label" for="form2Example28"> Password </label>-->
+<!--                        </div>-->
+<!--                        <div class="pt-1 mb-4">-->
+<!--                            <input class="btn btn-warning btn-lg btn-block"-->
+<!--                                   type="submit"-->
+<!--                                   value="Sign In"/>-->
+<!--&lt;!&ndash;                            <button&ndash;&gt;-->
+<!--&lt;!&ndash;                                    class="btn btn-warning btn-lg btn-block"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    type="submit"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    onsubmit="validateSignInEmail()"&ndash;&gt;-->
+<!--&lt;!&ndash;                            >Sign in</button>&ndash;&gt;-->
+<!--                        </div>-->
+<!--                        <p class="mt-4">Don't have an account?-->
+<!--                            <a href="./register.html" class="link-info">Register here</a>-->
+<!--                        </p>-->
+<!--                    </form>-->
                     <!-- end sign in form -->
+                    <form th:action="@{/login}" method="post">
+                        <div><label> User Name : <input type="text" name="username"/> </label></div>
+                        <div><label> Password: <input type="password" name="password"/> </label></div>
+                        <div><input type="submit" value="Sign In"/></div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     <!-- end login container -->
 </section>
-<!-- Bootstrap JavaScript Libraries -->
 <script
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

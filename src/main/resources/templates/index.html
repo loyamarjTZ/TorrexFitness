@@ -9,11 +9,9 @@
         <h1>What would you like to do?</h1>
         <a th:href="@{/index_users}" class="btn btn-primary">View all Users</a><br>
         <a th:href="@{/index_products}" class="btn btn-danger">View all Products</a><br>
-<!--    TODO - correct the href endpoints on the links below-->
-        <a th:href="@{/index_users}" class="btn btn-danger}">View all Carts</a><br>
-        <a th:href="@{/index_users}" class="btn btn-danger}">View all Cart Items</a><br>
+        <a th:href="@{/index_products}" class="btn btn-danger">View all Carts</a><br>
         <a th:href="@{/index_users}" class="btn btn-danger}">View all Orders</a><br>
-        <a th:href="@{/index}" class="btn btn-danger}">Back to Home</a><br>
     </div>
+    <a th:href="@{/logout}" class="btn btn-primary btn-sm mb-3"> Log out </a> <br>
 </body>
 </html>

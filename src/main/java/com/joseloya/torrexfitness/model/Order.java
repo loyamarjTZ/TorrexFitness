@@ -17,6 +17,15 @@ public class Order {
     private long cartId;
 
     @Column
+    private double subTotal;
+
+    @Column
+    private double tax;
+
+    @Column
+    private double total;
+
+    @Column
     private Date createdAt;
 
     public Order() {
