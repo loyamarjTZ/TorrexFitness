@@ -4,7 +4,16 @@
 * About this App
 
 ## Progress Reports
-### 4/13/22 = Completion Status: 50%
+### 4/14/22 - Completion Status: 55%
+* received help from Supamas to correct my DB schema. Changes involved:
+  * adding Order_Items table
+  * modifying existing tables to account for new field structure
+  * modified entity-relationships among tables
+  * added DB Schema diagram under resources/static/images/torrex_fitness_db_schema_final.PNG
+* revised Product CRUD operations
+* converted User model to Customer model since User and Customer should be treated as two different models
+
+### 4/13/22 - Completion Status: 50%
 * modified the Cart and CartItem models to include @OneToMany and @ManyToOne annotations respectively.
 * nearly completed with CRUD operations for Cart; need to refine
 * Researching how to add a list of CartItems to a Cart
