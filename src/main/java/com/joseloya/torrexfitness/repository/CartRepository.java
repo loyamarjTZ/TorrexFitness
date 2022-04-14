@@ -1,7 +1,7 @@
 package com.joseloya.torrexfitness.repository;
 
 import com.joseloya.torrexfitness.model.Cart;
-import com.joseloya.torrexfitness.model.User;
+import com.joseloya.torrexfitness.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

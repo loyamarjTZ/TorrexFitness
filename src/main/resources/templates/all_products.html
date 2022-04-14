@@ -29,6 +29,8 @@
             <td>
                 <a th:href="@{/showFormForProductUpdate/{id}(id=${product.id})}" class="btn btn-primary">Update</a>
                 <a th:href="@{/deleteProduct/{id}(id=${product.id})}" class="btn btn-danger">Delete</a>
+<!--                TODO - implement "/addProductToCart" endpoint in: ProductController? CartController?-->
+                <a th:href="@{/addProductToCart}" class="btn btn-warning">Add to Cart</a>
             </td>
         </tr>
         </tbody>

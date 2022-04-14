@@ -1,6 +1,6 @@
 package com.joseloya.torrexfitness.controller;
 
-import com.joseloya.torrexfitness.model.User;
+import com.joseloya.torrexfitness.model.Customer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;

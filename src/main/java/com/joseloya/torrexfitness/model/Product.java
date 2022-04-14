@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.Range;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "products")
@@ -27,20 +28,15 @@ public class Product {
 
     @Column
     @NotNull
-//    @Size(min=1, max=10)
     @Range(min = 0L, max = 10000)
     private double price;
 
-    public Product() {
-    }
+//    TODO - double check this statement with someone
+//    "One Product can be Many CartItems"
+    @OneToMany(mappedBy = "product")
+    private Set<CartItem> cartItems;
 
-    public Product(long id, String name, String description, double price) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-
-    }
+    public Product() {}
 
     public long getId() {
         return id;
@@ -72,19 +68,6 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return id == product.id && Double.compare(product.price, price) == 0 && Objects.equals(name, product.name) && Objects.equals(description, product.description);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, description, price);
     }
 
     @Override

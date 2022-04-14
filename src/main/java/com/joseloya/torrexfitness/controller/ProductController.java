@@ -19,7 +19,6 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    //display list of products
     @GetMapping("/index_products")
     public String getAllProducts(Model model) {
         model.addAttribute("listProducts", productService.getAllProducts());
@@ -52,7 +51,7 @@ public class ProductController {
     @GetMapping("/deleteProduct/{id}")
     public String deleteProduct(@PathVariable(value = "id") long id) {
         this.productService.deleteProductById(id);
-        return "redirect:/all_products";
+        return "redirect:/index_products";
     }
 }
 
