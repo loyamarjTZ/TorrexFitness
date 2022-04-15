@@ -4,6 +4,11 @@
 * About this App
 
 ## Progress Reports
+### 4/15/22 - Completion Status: 60%
+* updated all models to implement entity relationships according to DB schema 
+* database is now capable of storing relevant persisted data
+* revising app UI to a simpler version for ease of testing
+
 ### 4/14/22 - Completion Status: 55%
 * received help from Supamas to correct my DB schema. Changes involved:
   * adding Order_Items table
@@ -19,7 +24,6 @@
 * Researching how to add a list of CartItems to a Cart
 * Researching how to use @Transient to determine subTotal, tax, and total
 * images are causing issues with login; will simplify and exclude images in UI pages to assure functionality.
-
 
 ### 4/12/22 - Completion Status: 40%
 * improved User and Product Controllers

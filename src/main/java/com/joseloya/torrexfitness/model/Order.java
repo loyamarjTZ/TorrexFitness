@@ -1,12 +1,12 @@
 package com.joseloya.torrexfitness.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
 
+@Entity
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -14,7 +14,10 @@ public class Order {
     private long id;
 
     @Column
-    private long cartId;
+    private String customerFirstName;
+
+    @Column
+    private String customerLastName;
 
     @Column
     private double subTotal;
@@ -26,7 +29,16 @@ public class Order {
     private double total;
 
     @Column
-    private Date createdAt;
+    private String placedOn;
+
+    //One Order can have 1 or many OrderItems
+    @OneToMany(mappedBy = "order")
+    private Set<OrderItem> orderItemSet;
+
+    //One or Many Orders can belong to One Customer
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="customer_id", nullable = false)
+    private Customer customer;
 
     public Order() {
     }
@@ -39,41 +51,82 @@ public class Order {
         this.id = id;
     }
 
-    public long getCartId() {
-        return cartId;
+    public String getCustomerFirstName() {
+        return customerFirstName;
     }
 
-    public void setCartId(long cartId) {
-        this.cartId = cartId;
+    public void setCustomerFirstName(String customerFirstName) {
+        this.customerFirstName = customerFirstName;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public String getCustomerLastName() {
+        return customerLastName;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCustomerLastName(String customerLastName) {
+        this.customerLastName = customerLastName;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Order order = (Order) o;
-        return id == order.id && cartId == order.cartId && Objects.equals(createdAt, order.createdAt);
+    public double getSubTotal() {
+        return subTotal;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, cartId, createdAt);
+    public void setSubTotal(double subTotal) {
+        this.subTotal = subTotal;
+    }
+
+    public double getTax() {
+        return tax;
+    }
+
+    public void setTax(double tax) {
+        this.tax = tax;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public String getPlacedOn() {
+        return placedOn;
+    }
+
+    public void setPlacedOn(String placedOn) {
+        this.placedOn = placedOn;
+    }
+
+    public Set<OrderItem> getOrderItemSet() {
+        return orderItemSet;
+    }
+
+    public void setOrderItemSet(Set<OrderItem> orderItemSet) {
+        this.orderItemSet = orderItemSet;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", cartId=" + cartId +
-                ", createdAt=" + createdAt +
+                ", customerFirstName='" + customerFirstName + '\'' +
+                ", customerLastName='" + customerLastName + '\'' +
+                ", subTotal=" + subTotal +
+                ", tax=" + tax +
+                ", total=" + total +
+                ", placedOn='" + placedOn + '\'' +
+                ", orderItemSet=" + orderItemSet +
+                ", customer=" + customer +
                 '}';
     }
 }

@@ -31,10 +31,10 @@ public class Product {
     @Range(min = 0L, max = 10000)
     private double price;
 
-//    TODO - double check this statement with someone
-//    "One Product can be Many CartItems"
-    @OneToMany(mappedBy = "product")
-    private Set<CartItem> cartItems;
+    //One Product corresponds to One CartItem
+    @OneToOne(mappedBy = "product")
+    @PrimaryKeyJoinColumn
+    private CartItem cartItem;
 
     public Product() {}
 
@@ -70,6 +70,14 @@ public class Product {
         this.price = price;
     }
 
+    public CartItem getCartItem() {
+        return cartItem;
+    }
+
+    public void setCartItem(CartItem cartItem) {
+        this.cartItem = cartItem;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -77,6 +85,7 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
+                ", cartItem=" + cartItem +
                 '}';
     }
 }

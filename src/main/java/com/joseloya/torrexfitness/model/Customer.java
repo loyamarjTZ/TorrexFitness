@@ -5,6 +5,7 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "customers")
@@ -35,22 +36,24 @@ public class Customer {
     @Size(min = 1, max = 50)
     private String password;
 
-    public Customer() {
-    }
+    //One Customer has One Cart
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Cart cart;
 
-    public Customer(long id, String firstName, String lastName, String email, String password) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
+    //One Customer can have 0, 1, or Many Orders
+    @OneToMany(mappedBy = "customer")
+//    @OneToMany(targetEntity = Order.class, cascade = CascadeType.ALL)
+    private Set<Order> orderSet;
+
+    public Customer() {
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -86,17 +89,20 @@ public class Customer {
         this.password = password;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Customer customer = (Customer) o;
-        return id == customer.id && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(email, customer.email) && Objects.equals(password, customer.password);
+    public Cart getCart() {
+        return cart;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstName, lastName, email, password);
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public Set<Order> getOrderSet() {
+        return orderSet;
+    }
+
+    public void setOrderSet(Set<Order> orderSet) {
+        this.orderSet = orderSet;
     }
 
     @Override
@@ -107,6 +113,8 @@ public class Customer {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", cart=" + cart +
+                ", orderSet=" + orderSet +
                 '}';
     }
 }

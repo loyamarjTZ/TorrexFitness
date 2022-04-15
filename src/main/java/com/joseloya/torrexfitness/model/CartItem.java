@@ -2,6 +2,7 @@ package com.joseloya.torrexfitness.model;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "cart_items")
@@ -12,45 +13,61 @@ public class CartItem {
     private long id;
 
     @Column
-    private long productId;
-
-    @Column
     private int quantity;
 
-    @ManyToOne
-    @JoinColumn(name="cartId", nullable=false)
+    //0, 1, or Many CartItems can belong to 1 Cart
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "cart_id", nullable = false)
     private Cart cart;
+
+    //One CartItem corresponds to One Product
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     public CartItem() {
     }
 
-    public CartItem(long id, long productId, int quantity, Cart cart) {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
         this.id = id;
-        this.productId = productId;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
         this.cart = cart;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CartItem cartItem = (CartItem) o;
-        return id == cartItem.id && productId == cartItem.productId && quantity == cartItem.quantity && Objects.equals(cart, cartItem.cart);
+    public Product getProduct() {
+        return product;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, productId, quantity, cart);
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     @Override
     public String toString() {
         return "CartItem{" +
                 "id=" + id +
-                ", productId=" + productId +
                 ", quantity=" + quantity +
                 ", cart=" + cart +
+                ", product=" + product +
                 '}';
     }
 }

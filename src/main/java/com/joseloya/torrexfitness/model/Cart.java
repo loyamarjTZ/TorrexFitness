@@ -14,8 +14,15 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    //A Cart can have 0, 1, or many CartItems
     @OneToMany(mappedBy = "cart")
-    private Set<CartItem> cartItemList;
+    private Set<CartItem> cartItemSet;
+
+    //One Cart belongs to One Customer
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
     public Cart(){
     }
@@ -28,19 +35,28 @@ public class Cart {
         this.id = id;
     }
 
-    public Set<CartItem> getCartItemList() {
-        return cartItemList;
+    public Set<CartItem> getCartItemSet() {
+        return cartItemSet;
     }
 
-    public void setCartItemList(Set<CartItem> cartItemList) {
-        this.cartItemList = cartItemList;
+    public void setCartItemSet(Set<CartItem> cartItemSet) {
+        this.cartItemSet = cartItemSet;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override
     public String toString() {
         return "Cart{" +
                 "id=" + id +
-                ", cartItemList=" + cartItemList +
+                ", cartItemSet=" + cartItemSet +
+                ", customer=" + customer +
                 '}';
     }
 }
