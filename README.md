@@ -1,7 +1,10 @@
 # TEKsystems Capstone Project: Torrex Fitness
 
 ## Table of Contents
+<<<<<<< HEAD
 
+=======
+>>>>>>> ea164332c5b5a6f3e540c8366d12b6aace8e11a5
 * [Progress Reports](#Progress-Reports)
 * [About this App](#About-this-App)
 * [Technical Challenges](#Technical-Challenges)
@@ -13,12 +16,15 @@
 * [Contact Me](mailto:jose.loyamarquez@outlook.com)
 
 ## Progress Reports
+<<<<<<< HEAD
 
 ### 4/18/22 (70% Done)
 * Simplified registration page. 
 * Received help from Supamas and Ryan to implement account registration feature. Users, Admins, and SuperAdmins can now
   register an account which grants them their respective ROLE privileges.
 
+=======
+>>>>>>> ea164332c5b5a6f3e540c8366d12b6aace8e11a5
 ### 4/17/22 (65% Done)
 * Admin Home, Customers, and Products pages have been simplified
 * Added "quantity" field to Product model
@@ -26,7 +32,11 @@
 * Began implementing "Add to Cart" functionality
 
 ### 4/15/22 (60% Done)
+<<<<<<< HEAD
 * updated all models to implement entity relationships according to DB schema
+=======
+* updated all models to implement entity relationships according to DB schema 
+>>>>>>> ea164332c5b5a6f3e540c8366d12b6aace8e11a5
 * database is now capable of storing relevant persisted data
 * revising app UI to a simpler version for ease of testing
 
@@ -64,7 +74,10 @@
 * Torrex Fitness is a simple Ecommerce application that sells gym equipment.
 
 ### User Stories
+<<<<<<< HEAD
 
+=======
+>>>>>>> ea164332c5b5a6f3e540c8366d12b6aace8e11a5
 * Users will be able to:
     * create an account
     * sign in to their account
@@ -74,6 +87,7 @@
 
 
 * Admins will be able to:
+<<<<<<< HEAD
     * have the same functionality as a User
     * add a user
     * edit a user
@@ -100,4 +114,28 @@
 ## Lessons Learned
 
 ## Future Improvements
+=======
+  * have the same functionality as a User
+  * add a user
+  * edit a user
+  * add a product
+  * modify a product
 
+
+* SuperAdmins will be able to:
+  * have the same functionality as an Admin
+  * delete a user
+  * delete a product
+  * modify an order
+  * delete an order
+>>>>>>> ea164332c5b5a6f3e540c8366d12b6aace8e11a5
+
+
+## Technical Challenges
+* Implementing the Torrex Fitness database was the most challenging aspect of this project. I regularly found myself modifying models according to what I thought was correct at the time. I modified my tables at least 3 times during the life of this project, either because I was not getting my desired outcome or 
+I discovered a simpler implementation. I was particularly challenged by determining the Entity Relationships among my tables and implementing them using the @ManyToOne, @OneToMany, and @OneToOne annotations. 
+* Another challenge I encuntered was using Thymeleaf to make my web pages dynamic.
+
+## Lessons Learned
+
+## Future Improvements
