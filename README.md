@@ -57,12 +57,16 @@
 
 * Admins will be able to:
   * have the same functionality as a User
-  * add a user to the user list
-  * add a product to the product list
+  * add a user
+  * edit a user
+  * add a product
+  * modify a product
 
 
 * SuperAdmins will be able to:
   * have the same functionality as an Admin
-  * delete users from the user list
-  * delete products from the product list
+  * delete a user
+  * delete a product
+  * modify an order
+  * delete an order
 
