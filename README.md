@@ -1,9 +1,9 @@
 # TEKsystems Capstone Project: Torrex Fitness
 ## Table of Contents
-* [Progress Reports](Progress-Reports]
-* [About this App](About-this-App)
+* [Progress Reports](#Progress-Reports)
+* [About this App](#About-this-App)
 
-## Progress Reports
+##Progress Reports
 ### 4/17/22 - Completion Status: 65%
 * Admin Home, Customers, and Products pages have been simplified
 * Added "quantity" field to Product model
