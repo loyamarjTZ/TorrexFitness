@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+
+
 <head>
     <meta charset="UTF-8">
     <title>True Index</title>
@@ -63,6 +68,9 @@
     <a th:href="@{/index_users}" class="btn btn-primary my-3 col-3">View all Orders (Disabled)</a><br>
 </div>
 <!--end admin main menu-->
+<p>
+    Welcome <span sec:authentication="principal.username">com.joseloya.torrexfitness.security.User</span>
+</p>
 
 <!--Bootstrap 5 scripts-->
 <script
