@@ -2,20 +2,21 @@
 ## Table of Contents
 * [Progress Reports](#Progress-Reports)
 * [About this App](#About-this-App)
+* [Contact Me](mailto:jose.loyamarquez@outlook.com)
 
 ## Progress Reports
-### 4/17/22 - Completion Status: 65%
+### 4/17/22 (65% Done)
 * Admin Home, Customers, and Products pages have been simplified
 * Added "quantity" field to Product model
 * Created user_product_gallery page for customer to browse products
 * Began implementing "Add to Cart" functionality
 
-### 4/15/22 - Completion Status: 60%
+### 4/15/22 (60% Done)
 * updated all models to implement entity relationships according to DB schema 
 * database is now capable of storing relevant persisted data
 * revising app UI to a simpler version for ease of testing
 
-### 4/14/22 - Completion Status: 55%
+### 4/14/22 (55% Done)
 * received help from Supamas to correct my DB schema. Changes involved:
   * adding Order_Items table
   * modifying existing tables to account for new field structure
@@ -24,20 +25,20 @@
 * revised Product CRUD operations
 * converted User model to Customer model since User and Customer should be treated as two different models
 
-### 4/13/22 - Completion Status: 50%
+### 4/13/22 (50% Done)
 * modified the Cart and CartItem models to include @OneToMany and @ManyToOne annotations respectively.
 * nearly completed with CRUD operations for Cart; need to refine
 * Researching how to add a list of CartItems to a Cart
 * Researching how to use @Transient to determine subTotal, tax, and total
 * images are causing issues with login; will simplify and exclude images in UI pages to assure functionality.
 
-### 4/12/22 - Completion Status: 40%
+### 4/12/22 (40% Done)
 * improved User and Product Controllers
 * finished CRUD operations for User and Products models
 * created home page for Admin and SuperAdmin (needs styling)
 * received help from Ryan and improved transitions from one page to another using Thymeleaf
 
-### 4/11/22 - Completion Status: 30%
+### 4/11/22 (30% Done)
 * redesigned the models of my app. Still a work in progress.
 * rewrote some and still implementing all CRUD functions 
 * received help from Ryan and Corey regarding security
