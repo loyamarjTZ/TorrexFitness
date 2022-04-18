@@ -26,7 +26,6 @@
 * Began implementing "Add to Cart" functionality
 
 ### 4/15/22 (60% Done)
-<<<<<<< HEAD
 * updated all models to implement entity relationships according to DB schema
 * updated all models to implement entity relationships according to DB schema
 * database is now capable of storing relevant persisted data
@@ -62,11 +61,9 @@
 ## About this App
 
 ### What is Torrex Fitness?
-
 * Torrex Fitness is a simple Ecommerce application that sells gym equipment.
 
 ### User Stories
-
 * Users will be able to:
     * create an account
     * sign in to their account
