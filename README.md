@@ -1,7 +1,7 @@
 # TEKsystems Capstone Project: Torrex Fitness
 ## Table of Contents
-* Progress Reports
-* About this App
+* [Progress Reports](Progress-Reports]
+* [About this App](About-this-App)
 
 ## Progress Reports
 ### 4/17/22 - Completion Status: 65%
