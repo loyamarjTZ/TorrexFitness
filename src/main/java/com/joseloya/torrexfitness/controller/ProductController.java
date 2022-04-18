@@ -1,5 +1,6 @@
 package com.joseloya.torrexfitness.controller;
 
+import com.joseloya.torrexfitness.model.CartItem;
 import com.joseloya.torrexfitness.model.Product;
 import com.joseloya.torrexfitness.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +25,6 @@ public class ProductController {
         model.addAttribute("listProducts", productService.getAllProducts());
         return "all_products";
     }
-
-    @GetMapping("/showNewProductForm")
-    public String showNewProductForm(Model model) {
-        Product product = new Product();
-        model.addAttribute("product", product);
-        return "new_product";
-    }
 //
     @PostMapping("/saveProduct")
     public String saveProduct(@ModelAttribute("product") @Valid Product product, BindingResult bindingResult) {
@@ -41,6 +35,19 @@ public class ProductController {
         return "redirect:/index_products";
     }
 
+    @GetMapping("/deleteProduct/{id}")
+    public String deleteProduct(@PathVariable(value = "id") long id) {
+        this.productService.deleteProductById(id);
+        return "redirect:/index_products";
+    }
+
+    @GetMapping("/showNewProductForm")
+    public String showNewProductForm(Model model) {
+        Product product = new Product();
+        model.addAttribute("product", product);
+        return "new_product";
+    }
+
     @GetMapping("/showFormForProductUpdate/{id}")
     public String showFormForProductUpdate(@PathVariable(value = "id") long id, Model model) {
         Product product = productService.getProductById(id);
@@ -48,10 +55,11 @@ public class ProductController {
         return "update_product";
     }
 
-    @GetMapping("/deleteProduct/{id}")
-    public String deleteProduct(@PathVariable(value = "id") long id) {
-        this.productService.deleteProductById(id);
-        return "redirect:/index_products";
+    @GetMapping("/showProductGallery")
+    public String showProductGallery(Model model) {
+        model.addAttribute("listProducts", productService.getAllProducts());
+        model.addAttribute("cart_item", new Product());
+        return "user_product_gallery";
     }
 }
 

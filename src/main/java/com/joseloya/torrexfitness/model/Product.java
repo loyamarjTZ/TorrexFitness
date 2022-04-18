@@ -1,9 +1,11 @@
 package com.joseloya.torrexfitness.model;
 
 import com.sun.istack.NotNull;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.Set;
@@ -16,9 +18,9 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
+    @Column(unique = true)
     @NotNull
-    @Size(min = 1, max = 30)
+    @Length(min = 3, message = "Name must have at least 3 characters")
     private String name;
 
     @Column
@@ -30,6 +32,10 @@ public class Product {
     @NotNull
     @Range(min = 0L, max = 10000)
     private double price;
+
+    @Column
+    @Min(value = 1, message = "Quantity has to be non-negative number")
+    private Integer quantity;
 
     //One Product corresponds to One CartItem
     @OneToOne(mappedBy = "product")
@@ -70,6 +76,14 @@ public class Product {
         this.price = price;
     }
 
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
     public CartItem getCartItem() {
         return cartItem;
     }
@@ -85,6 +99,7 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
+                ", quantity=" + quantity +
                 ", cartItem=" + cartItem +
                 '}';
     }

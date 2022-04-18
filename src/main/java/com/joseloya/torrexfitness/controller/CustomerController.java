@@ -32,17 +32,17 @@ public class CustomerController {
         return "new_customer";
     }
 
-    @PostMapping("/saveCustomer")
-    public String saveCustomer(@ModelAttribute("customer") Customer customer) {
-        customerService.saveCustomer(customer);
-        return "redirect:/index_customers";
-    }
-
     @GetMapping("/showFormForCustomerUpdate/{id}")
     public String showFormForCustomerUpdate(@PathVariable(value = "id") long id, Model model) {
         Customer customer = customerService.getCustomerById(id);
         model.addAttribute("customer", customer);
         return "update_customer";
+    }
+
+    @PostMapping("/saveCustomer")
+    public String saveCustomer(@ModelAttribute("customer") Customer customer) {
+        customerService.saveCustomer(customer);
+        return "redirect:/index_customers";
     }
 
     @GetMapping("/deleteCustomer/{id}")

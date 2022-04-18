@@ -1,3 +1,13 @@
+
+// modal: Add to Cart
+var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})
+// end modal: Add to Cart
+
 function validateSignInEmail() {
   var user = document.getElementById("sign-in-email").value;
   var user2 = document.getElementById("sign-in-email");
@@ -10,3 +20,4 @@ function validateSignInEmail() {
     return false;
   }
 }
+

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+<html lang="en">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Add Product</title>
+    <meta charset="UTF-8">
+    <title></title>
     <!--Bootstrap 5-->
     <link
             rel="stylesheet"
@@ -28,7 +29,6 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- end hamburger menu for navbar-->
-
         <!-- navbar items-->
         <div
                 class="collapse navbar-collapse"
@@ -40,13 +40,11 @@
                 Torrex Fitness
             </a>
             <!--end logo-->
-
             <!-- navbar menu-->
             <div class="navbar-nav ms-auto">
-                <a class="btn btn-warning nav-link mx-1" th:href="@{/}">Home</a>
-                <a class="btn btn-warning nav-link mx-1" th:href="@{/index_products}">Products</a>
-                <a class="btn btn-warning nav-link mx-1" th:href="@{/index_customers}">Customers</a>
-                <a class="btn btn-warning nav-link mx-1" th:href="@{/index_orders}">Orders</a>
+                <a class="btn btn-warning nav-link mx-1" th:href="@{/}">Product Gallery</a>
+                <a class="btn btn-warning nav-link mx-1" th:href="@{/#}">My Cart</a>
+                <a class="btn btn-warning nav-link mx-1" th:href="@{/#}">My Orders</a>
                 <a class="btn btn-outline-secondary ms-1" th:href="@{/logout}">Log out</a>
             </div>
             <!--end navbar menu-->
@@ -57,22 +55,32 @@
 <!--end navbar-->
 
 <div class="container mt-4">
-    <h1 class="py-1">Add Product</h1>
+    <h1 class="py-1">My Cart</h1>
     <hr>
-    <form action="#" th:action="@{/saveProduct}" th:object="${product}" method="POST">
-
-        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name error</div>
-        <input type="text" th:field="*{name}" placeholder="Name" class="form-control my-4 col-4">
-
-        <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}">description error</div>
-        <input type="text" th:field="*{description}" placeholder="Product Description" class="form-control mb-4 col-4">
-
-        <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}">price error</div>
-        <input type="text" th:field="*{price}" placeholder="Product Price" value="Price" class="form-control mb-4 col-4">
-
-        <button type="submit" class="btn btn-primary col-2">Add Product</button>
-        <a class="btn btn-outline-secondary col-1" th:href="@{/index_products}" >Cancel</a>
-    </form>
+    <!--    <a class="btn btn-primary my-3" th:href="@{/showNewProductForm}"> Add Product </a>-->
+    <table border="1" class="table table-striped table-responsive-md shadow-sm my-3">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${listProducts}">
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.quantity}"></td>
+            <td>
+                <!--todo - implement th:href="@{/deleteProductFromCart} endpoint-->
+                <a class="btn btn-danger btn-sm" th:href="@{/deleteProduct/{id}(id=${product.id})}">Remove</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <!--Bootstrap 5 scripts-->
 <script

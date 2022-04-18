@@ -21,7 +21,7 @@ public class CartItem {
     private Cart cart;
 
     //One CartItem corresponds to One Product
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @MapsId
     @JoinColumn(name = "product_id")
     private Product product;

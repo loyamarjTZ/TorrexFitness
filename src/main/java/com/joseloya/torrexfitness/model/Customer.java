@@ -1,8 +1,11 @@
 package com.joseloya.torrexfitness.model;
 
 import com.sun.istack.NotNull;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.Set;
@@ -18,22 +21,27 @@ public class Customer {
 
     @Column
     @NotNull
+    @NotEmpty(message = "Please provide your first name")
     @Size(min = 1, max = 30)
     private String firstName;
 
     @Column
     @NotNull
+    @NotEmpty(message = "Please provide your last name")
     @Size(min = 1, max = 30)
     private String lastName;
 
-    @Column
+    @Column(unique = true)
     @NotNull
+    @Email(message = "Please provide a valid Email")
+    @NotEmpty(message = "Please provide an email")
     @Size(min = 3, max = 50)
     private String email;
 
     @Column
     @NotNull
-    @Size(min = 1, max = 50)
+    @Length(min = 5, message = "Your password must have at least 5 characters")
+    @NotEmpty(message = "Please provide your password")
     private String password;
 
     //One Customer has One Cart

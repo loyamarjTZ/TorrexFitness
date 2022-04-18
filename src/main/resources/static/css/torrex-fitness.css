@@ -1,3 +1,37 @@
+
+.btn-primary-tf {
+    color: #fff;
+    background-color: #0495c9;
+    border-color: #357ebd; /*change to desired color*/
+}
+
+.btn-primary-tf:hover,
+ .btn-primary-tf:focus,
+  .btn-primary-tf:active,
+   .btn-primary-tf.active,
+    .open>.dropdown-toggle.btn-primary-tf {
+        color: #fff;
+        background-color: #00b3db;
+        border-color: #285e8e; /*change to desired color*/
+}
+
+.btn-warning-tf {
+    color: #fff;
+    background-color: #0495c9;
+    border-color: #357ebd; /*change to desired color*/
+}
+
+.btn-warning-tf:hover,
+ .btn-warning-tf:focus,
+  .btn-warning-tf:active,
+   .btn-warning-tf.active,
+    .open>.dropdown-toggle.btn-warning-tf {
+        color: #fff;
+        background-color: #00b3db;
+        border-color: #285e8e; /*change to desired color*/
+}
+
+
 /* .torrex-fitness {
   font-family: "Vazirmatn", sans-serif;
 }
