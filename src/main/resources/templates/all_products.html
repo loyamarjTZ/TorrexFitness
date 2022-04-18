@@ -75,7 +75,7 @@
         <tr th:each="product : ${listProducts}">
             <td th:text="${product.name}"></td>
             <td th:text="${product.description}"></td>
-            <td th:text="${product.price}"></td>
+            <td th:text="'$'+${product.price}"></td>
             <td>
                 <a class="btn btn-primary btn-sm"
                    th:href="@{/showFormForProductUpdate/{id}(id=${product.id})}">Update</a>

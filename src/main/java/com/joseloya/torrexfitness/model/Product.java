@@ -20,12 +20,12 @@ public class Product {
 
     @Column(unique = true)
     @NotNull
-    @Length(min = 3, message = "Name must have at least 3 characters")
+    @Length(min = 1, message = "Name cannot be left blank")
     private String name;
 
     @Column
     @NotNull
-    @Size(min = 1, max = 500)
+    @Size(min = 1, max = 500, message = "Description cannot be left blank")
     private String description;
 
     @Column
