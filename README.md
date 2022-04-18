@@ -2,6 +2,12 @@
 ## Table of Contents
 * [Progress Reports](#Progress-Reports)
 * [About this App](#About-this-App)
+* [Technical Challenges](#Technical-Challenges)
+* [Lessons Learned](#Lessons-Learned)
+* [Future Improvements](#Future-Improvements)
+* [Technical Architecture](http://)
+* [Wire Frame](http://)
+* [Schema Diagram](http://)
 * [Contact Me](mailto:jose.loyamarquez@outlook.com)
 
 ## Progress Reports
@@ -47,7 +53,7 @@
 ### What is Torrex Fitness?
 * Torrex Fitness is a simple Ecommerce application that sells gym equipment.
 
-### What can it do?
+### User Stories
 * Users will be able to:
   * create an account
   * sign in to their account
@@ -70,4 +76,36 @@
   * delete a product
   * modify an order
   * delete an order
+
+
+## Technical Challenges
+* Implementing the Torrex Fitness database was the most challenging aspect of this project. I regularly found myself modifying models according to what I thought was correct at the time. I modified my tables at least 3 times during the life of this project, either because I was not getting my desired outcome or 
+I discovered a simpler implementation. I was particularly challenged by determining the Entity Relationships among my tables and implementing them using the @ManyToOne, @OneToMany, and @OneToOne annotations. 
+* Another challenge I encuntered was using Thymeleaf to make my web pages dynamic.
+
+## Lessons Learned
+
+## Future Improvements
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
