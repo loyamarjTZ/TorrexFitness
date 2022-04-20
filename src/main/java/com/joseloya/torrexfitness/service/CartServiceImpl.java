@@ -27,7 +27,7 @@ public class CartServiceImpl implements CartService {
     public boolean existsById(Long aLong) { return this.cartRepository.existsById(aLong); };
 
     @Override
-    public Cart getCartById(long id) {
+    public Cart getCartById(Long id) {
         Optional <Cart> optional = cartRepository.findById(id);
         Cart cart = null;
         if (optional.isPresent()) {
@@ -39,7 +39,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void deleteCartById(long id) {
+    public void deleteCartById(Long id) {
         this.cartRepository.deleteById(id);
     }
 }

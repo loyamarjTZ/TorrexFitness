@@ -16,7 +16,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(unique = true)
     @NotNull
@@ -31,7 +31,7 @@ public class Product {
     @Column
     @NotNull
     @Range(min = 0L, max = 10000)
-    private double price;
+    private Double price;
 
     @Column
     @Min(value = 1, message = "Quantity has to be non-negative number")
@@ -42,13 +42,15 @@ public class Product {
     @PrimaryKeyJoinColumn
     private CartItem cartItem;
 
-    public Product() {}
+    public Product() {
+        this.quantity = 1;
+    }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -68,11 +70,11 @@ public class Product {
         this.description = description;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

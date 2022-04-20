@@ -34,8 +34,10 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setFirstName(registration.getFirstName());
         customer.setLastName(registration.getLastName());
         customer.setEmail(registration.getEmail());
-//        customer.setPassword(passwordEncoder.encode(registration.getPassword()));
+        return customerRepository.save(customer);
 
+//        customer.setPassword(passwordEncoder.encode(registration.getPassword()));
+//
 //        if(customer.getFirstName().contains("superadmin")){
 //            customer.setRoles(Arrays.asList(
 //                    new Role("ROLE_SUPERADMIN"),
@@ -52,12 +54,10 @@ public class CustomerServiceImpl implements CustomerService {
 //                    new Role("ROLE_USER")
 //            ));
 //        }
-
-        return customerRepository.save(customer);
     }
 
     @Override
-    public Customer getCustomerById(long id) {
+    public Customer getCustomerById(Long id) {
         Optional <Customer> optional = customerRepository.findById(id);
         Customer customer = null;
         if (optional.isPresent()) {
@@ -69,7 +69,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void deleteCustomerById(long id) {
+    public void deleteCustomerById(Long id) {
         this.customerRepository.deleteById(id);
     }
 }

@@ -10,15 +10,7 @@ public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @Column
-    private int quantity;
-
-    //0, 1, or Many CartItems can belong to 1 Cart
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "cart_id", nullable = false)
-    private Cart cart;
+    private Long id;
 
     //One CartItem corresponds to One Product
     @OneToOne(fetch = FetchType.EAGER)
@@ -26,32 +18,40 @@ public class CartItem {
     @JoinColumn(name = "product_id")
     private Product product;
 
+//    @Column
+//    private Integer quantity;
+
+    //0, 1, or Many CartItems can belong to 1 Cart
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "cart_id", nullable = false)
+//    private Cart cart;
+
     public CartItem() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
+//    public Integer getQuantity() {
+//        return quantity;
+//    }
+//
+//    public void setQuantity(Integer quantity) {
+//        this.quantity = quantity;
+//    }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public Cart getCart() {
-        return cart;
-    }
-
-    public void setCart(Cart cart) {
-        this.cart = cart;
-    }
+//    public Cart getCart() {
+//        return cart;
+//    }
+//
+//    public void setCart(Cart cart) {
+//        this.cart = cart;
+//    }
 
     public Product getProduct() {
         return product;
@@ -65,8 +65,8 @@ public class CartItem {
     public String toString() {
         return "CartItem{" +
                 "id=" + id +
-                ", quantity=" + quantity +
-                ", cart=" + cart +
+//                ", quantity=" + quantity +
+//                ", cart=" + cart +
                 ", product=" + product +
                 '}';
     }

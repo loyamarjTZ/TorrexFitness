@@ -14,6 +14,11 @@
 
 ## Progress Reports
 
+### 4/20/22 (80% Done)
+* implemented CartItemService, CartItemServiceImpl, and CartItemRepository
+* created web page for displaying cart items, subtotal, tax, and total
+* created new and modified existing handler methods to persist CartItems and update related tables as necessary
+
 ### 4/19/22 (75% Done)
 * Users that register for an account are now simultaneously added to the Customer table
 * Received help from Supamas and Ryan in persisting a Cart to the database

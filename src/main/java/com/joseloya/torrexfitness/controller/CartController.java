@@ -53,13 +53,12 @@ public class CartController {
     public String showCustomerCart(Model model) {
         if(!cartService.existsById(1L)) {
             Cart cart = new Cart();
-            cart.setCustomer(customerService.getCustomerById(1));
+            cart.setCustomer(customerService.getCustomerById(1L));
             cartService.saveCart(cart);
-            model.addAttribute("customerCart", cartService.getCartById(1));
-            //System.out.println(cart.getId());
+            model.addAttribute("customerCart", cartService.getCartById(1L));
             return "user_shopping_cart";
         }
-        model.addAttribute("customerCart", cartService.getCartById(1));
+        model.addAttribute("cartItemSet", cartService.getCartById(1L).getCartItemSet()); //add the cartItemSet to the model
         return "user_shopping_cart";
     }
 

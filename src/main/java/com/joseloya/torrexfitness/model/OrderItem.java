@@ -8,7 +8,7 @@ public class OrderItem {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @Column
     private String productName;
@@ -17,10 +17,10 @@ public class OrderItem {
     private String productDescription;
 
     @Column
-    private double productPrice;
+    private Double productPrice;
 
     @Column
-    private int productQuantity;
+    private Integer productQuantity;
 
     //1 or Many OrderItems can belong to 1 Order
     @ManyToOne(fetch = FetchType.EAGER)
@@ -30,11 +30,11 @@ public class OrderItem {
     public OrderItem() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -54,19 +54,19 @@ public class OrderItem {
         this.productDescription = productDescription;
     }
 
-    public double getProductPrice() {
+    public Double getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(double productPrice) {
+    public void setProductPrice(Double productPrice) {
         this.productPrice = productPrice;
     }
 
-    public int getProductQuantity() {
+    public Integer getProductQuantity() {
         return productQuantity;
     }
 
-    public void setProductQuantity(int productQuantity) {
+    public void setProductQuantity(Integer productQuantity) {
         this.productQuantity = productQuantity;
     }
 

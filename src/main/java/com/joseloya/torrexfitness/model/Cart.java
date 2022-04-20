@@ -12,10 +12,11 @@ public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     //A Cart can have 0, 1, or many CartItems
-    @OneToMany(mappedBy = "cart")
+//    (mappedBy = "cart")
+    @OneToMany
     private Set<CartItem> cartItemSet;
 
     //One Cart belongs to One Customer
@@ -27,11 +28,11 @@ public class Cart {
     public Cart(){
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -1,7 +1,11 @@
 package com.joseloya.torrexfitness.controller;
 
+import com.joseloya.torrexfitness.model.Cart;
 import com.joseloya.torrexfitness.model.CartItem;
 import com.joseloya.torrexfitness.model.Product;
+import com.joseloya.torrexfitness.service.CartItemService;
+import com.joseloya.torrexfitness.service.CartService;
+import com.joseloya.torrexfitness.service.CustomerService;
 import com.joseloya.torrexfitness.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,12 +17,33 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 @Controller
 public class ProductController {
 
-    @Autowired
+//    @Autowired
+//    private ProductService productService;
+//    private CartService cartService;
+
     private ProductService productService;
+    private CartService cartService;
+    private CartItemService cartItemService;
+    private CustomerService customerService;
+
+    @Autowired
+    public ProductController(ProductService productService,
+                             CartService cartService,
+                             CartItemService cartItemService,
+                             CustomerService customerService) {
+        this.cartService = cartService;
+        this.productService = productService;
+        this.cartItemService = cartItemService;
+        this.customerService = customerService;
+    }
 
     @GetMapping("/index_products")
     public String getAllProducts(Model model) {
@@ -60,6 +85,26 @@ public class ProductController {
         model.addAttribute("listProducts", productService.getAllProducts());
 //        model.addAttribute("cart_item", new Product());
         return "user_product_gallery";
+    }
+
+    @GetMapping("/addProductToCart")
+    public String addProductToCart(Model model){
+        if(!cartService.existsById(1L)) {
+            Cart cart = new Cart();
+            cart.setCustomer(customerService.getCustomerById(1L));
+            cartService.saveCart(cart);
+        }
+
+        CartItem cartItem = new CartItem(); // "property-empty" cartItem object
+        cartItem.setProduct(productService.getProductById(1L)); //set product property to first product
+        cartItemService.saveCartItem(cartItem);
+
+        Set<CartItem> cartItemSet = new HashSet<>();
+        cartItemSet.add(cartItem);
+        cartService.getCartById(1L).setCartItemSet(cartItemSet);
+
+        model.addAttribute("cartItemSet", cartService.getCartById(1L).getCartItemSet()); //add the cartItemSet to the model
+        return "user_shopping_cart"; //go to the Customer's Cart
     }
 }
 

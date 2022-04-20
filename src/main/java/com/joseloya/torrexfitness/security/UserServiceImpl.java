@@ -47,7 +47,8 @@ public class UserServiceImpl implements UserService {
         customer.setFirstName(registration.getFirstName());
         customer.setLastName(registration.getLastName());
         customer.setEmail(registration.getEmail());
-        customer.setPassword(passwordEncoder.encode(registration.getPassword()));
+        customer.setPassword(user.getPassword());
+//        customer.setPassword(passwordEncoder.encode(registration.getPassword()));
 
         if(user.getFirstName().contains("superadmin")){
             user.setRoles(Arrays.asList(
