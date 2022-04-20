@@ -1,5 +1,7 @@
 package com.joseloya.torrexfitness.security;
 
+import com.joseloya.torrexfitness.model.Customer;
+import com.joseloya.torrexfitness.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,6 +21,10 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    //added
+    @Autowired
+    private CustomerRepository customerRepository;
+
     private PasswordEncoder passwordEncoder;
 
     public UserServiceImpl(UserRepository userRepository) {
@@ -37,6 +43,12 @@ public class UserServiceImpl implements UserService {
         user.setEmail(registration.getEmail());
         user.setPassword(passwordEncoder.encode(registration.getPassword()));
 
+        Customer customer = new Customer();
+        customer.setFirstName(registration.getFirstName());
+        customer.setLastName(registration.getLastName());
+        customer.setEmail(registration.getEmail());
+        customer.setPassword(passwordEncoder.encode(registration.getPassword()));
+
         if(user.getFirstName().contains("superadmin")){
             user.setRoles(Arrays.asList(
                     new Role("ROLE_SUPERADMIN"),
@@ -54,6 +66,7 @@ public class UserServiceImpl implements UserService {
             ));
         }
 
+        customerRepository.save(customer);
         return userRepository.save(user);
     }
 

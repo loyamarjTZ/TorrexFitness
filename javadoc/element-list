@@ -1,0 +1,6 @@
+com.joseloya.torrexfitness
+com.joseloya.torrexfitness.controller
+com.joseloya.torrexfitness.model
+com.joseloya.torrexfitness.repository
+com.joseloya.torrexfitness.security
+com.joseloya.torrexfitness.service

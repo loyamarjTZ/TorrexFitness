@@ -14,6 +14,11 @@
 
 ## Progress Reports
 
+### 4/19/22 (75% Done)
+* Users that register for an account are now simultaneously added to the Customer table
+* Received help from Supamas and Ryan in persisting a Cart to the database
+* Began implementing "Add to Cart" functionality 
+
 ### 4/18/22 (70% Done)
 * Simplified registration page. 
 * Received help from Supamas and Ryan to implement account registration feature. Users, Admins, and SuperAdmins can now
@@ -75,18 +80,17 @@
 * Admins will be able to:
 
     * have the same functionality as a User
-    * add a user
     * edit a user
+    * edit a product
     * add a product
-    * modify a product
 
 
 * SuperAdmins will be able to:
     * have the same functionality as an Admin
     * delete a user
     * delete a product
-    * modify an order
-    * delete an order
+    * edit an order
+
 
 ## Technical Challenges
 

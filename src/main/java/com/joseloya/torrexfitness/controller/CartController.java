@@ -2,7 +2,11 @@ package com.joseloya.torrexfitness.controller;
 
 import com.joseloya.torrexfitness.model.Cart;
 import com.joseloya.torrexfitness.model.CartItem;
+import com.joseloya.torrexfitness.repository.CartRepository;
+import com.joseloya.torrexfitness.repository.CustomerRepository;
 import com.joseloya.torrexfitness.service.CartService;
+import com.joseloya.torrexfitness.service.CartServiceImpl;
+import com.joseloya.torrexfitness.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,10 +22,12 @@ import java.util.Set;
 @Controller
 public class CartController {
     private CartService cartService;
+    private CustomerService customerService;
 
     @Autowired
-    public CartController(CartService cartService) {
+    public CartController(CartService cartService, CustomerService customerService) {
         this.cartService = cartService;
+        this.customerService = customerService;
     }
 
     @PostMapping("/saveCart")
@@ -43,11 +49,18 @@ public class CartController {
         return "redirect:/index_carts";
     }
 
-    @GetMapping("/showMyCart")
-    public String showNewCartForm(Model model) {
-        Cart cart = new Cart();
-        model.addAttribute("cart", cart);
-        return "new_cart";
+    @GetMapping("/showCustomerCart")
+    public String showCustomerCart(Model model) {
+        if(!cartService.existsById(1L)) {
+            Cart cart = new Cart();
+            cart.setCustomer(customerService.getCustomerById(1));
+            cartService.saveCart(cart);
+            model.addAttribute("customerCart", cartService.getCartById(1));
+            //System.out.println(cart.getId());
+            return "user_shopping_cart";
+        }
+        model.addAttribute("customerCart", cartService.getCartById(1));
+        return "user_shopping_cart";
     }
 
 //    @GetMapping("/index_carts")

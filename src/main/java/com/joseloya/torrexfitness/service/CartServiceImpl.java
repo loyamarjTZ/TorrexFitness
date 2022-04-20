@@ -24,6 +24,8 @@ public class CartServiceImpl implements CartService {
         this.cartRepository.save(cart);
     }
 
+    public boolean existsById(Long aLong) { return this.cartRepository.existsById(aLong); };
+
     @Override
     public Cart getCartById(long id) {
         Optional <Cart> optional = cartRepository.findById(id);

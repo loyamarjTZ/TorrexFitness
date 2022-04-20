@@ -58,7 +58,7 @@ public class ProductController {
     @GetMapping("/showProductGallery")
     public String showProductGallery(Model model) {
         model.addAttribute("listProducts", productService.getAllProducts());
-        model.addAttribute("cart_item", new Product());
+//        model.addAttribute("cart_item", new Product());
         return "user_product_gallery";
     }
 }

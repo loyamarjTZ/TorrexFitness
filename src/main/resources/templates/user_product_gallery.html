@@ -43,10 +43,26 @@
             <!--end logo-->
             <!-- navbar menu-->
             <div class="navbar-nav ms-auto">
-                <a class="btn btn-warning nav-link mx-1" th:href="@{/}">Product Gallery</a>
-                <a class="btn btn-warning nav-link mx-1" th:href="@{/#}">My Cart</a>
+                <a class="btn btn-warning nav-link mx-1" th:href="@{/showProductGallery}">Product Gallery</a>
+                <a class="btn btn-warning nav-link mx-1" th:href="@{/showCustomerCart}">My Cart</a>
                 <a class="btn btn-warning nav-link mx-1" th:href="@{/#}">My Orders</a>
-                <a class="btn btn-outline-secondary ms-1" th:href="@{/logout}">Log out</a>
+                <div class="dropdown">
+                    <a class="btn btn-warning dropdown-toggle nav-link"
+                       href="#"
+                       role="button"
+                       id="dropdownMenuLink"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Admin
+                    </a>
+                    <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuLink">
+                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/}">Home</a></li>
+                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_products}">All Products</a></li>
+                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_customers}">All Customers</a></li>
+                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_orders}">All Orders</a></li>
+                    </ul>
+                </div>
+                <a class="btn btn-outline-secondary ms-1" th:href="@{/logout}">Log out</a> <br>
             </div>
             <!--end navbar menu-->
         </div>

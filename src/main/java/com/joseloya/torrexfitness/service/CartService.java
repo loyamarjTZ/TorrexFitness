@@ -7,6 +7,7 @@ import java.util.List;
 public interface CartService {
     List <Cart> getAllCarts();
     void saveCart(Cart cart);
+    boolean existsById(Long aLong);
     Cart getCartById(long id);
     void deleteCartById(long id);
 }

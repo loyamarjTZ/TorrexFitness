@@ -46,10 +46,25 @@
             <!--end logo-->
             <!-- navbar menu-->
             <div class="navbar-nav ms-auto">
-                <a class="btn btn-warning nav-link mx-1" th:href="@{/}">Home</a>
-                <a class="btn btn-warning nav-link mx-1" th:href="@{/index_products}">Products</a>
-                <a class="btn btn-warning nav-link mx-1" th:href="@{/index_customers}">Customers</a>
-                <a class="btn btn-warning nav-link mx-1" th:href="@{/index_orders}">Orders</a>
+                <a class="btn btn-warning nav-link mx-1" th:href="@{/showProductGallery}">Product Gallery</a>
+                <a class="btn btn-warning nav-link mx-1" th:href="@{/showCustomerCart}">My Cart</a>
+                <a class="btn btn-warning nav-link mx-1" th:href="@{/#}">My Orders</a>
+                <div class="dropdown">
+                    <a class="btn btn-warning dropdown-toggle nav-link"
+                       href="#"
+                       role="button"
+                       id="dropdownMenuLink"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Admin
+                    </a>
+                    <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuLink">
+                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/}">Home</a></li>
+                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_products}">All Products</a></li>
+                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_customers}">All Customers</a></li>
+                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_orders}">All Orders</a></li>
+                    </ul>
+                </div>
                 <a class="btn btn-outline-secondary ms-1" th:href="@{/logout}">Log out</a> <br>
             </div>
             <!--end navbar menu-->
@@ -61,16 +76,19 @@
 
 <!--admin main menu-->
 <div class="container mt-4">
-    <h1 class="py-1">Admin Home</h1>
+    <h1 class="py-1">
+        Welcome,
+        <span sec:authentication="principal.username">com.joseloya.torrexfitness.security.User</span>
+    </h1>
     <hr>
     <a th:href="@{/index_products}" class="btn btn-primary my-3 col-3">View all Products</a><br>
     <a th:href="@{/index_customers}" class="btn btn-primary my-3 col-3">View all Customers</a><br>
     <a th:href="@{/index_users}" class="btn btn-primary my-3 col-3">View all Orders (Disabled)</a><br>
 </div>
 <!--end admin main menu-->
-<p>
-    Welcome <span sec:authentication="principal.username">com.joseloya.torrexfitness.security.User</span>
-</p>
+<!--<p>-->
+<!--    Welcome <span sec:authentication="principal.username">com.joseloya.torrexfitness.security.User</span>-->
+<!--</p>-->
 
 <!--Bootstrap 5 scripts-->
 <script
