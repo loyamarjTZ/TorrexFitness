@@ -4,6 +4,7 @@ import com.joseloya.torrexfitness.model.Cart;
 import com.joseloya.torrexfitness.model.CartItem;
 import com.joseloya.torrexfitness.repository.CartRepository;
 import com.joseloya.torrexfitness.repository.CustomerRepository;
+import com.joseloya.torrexfitness.service.CartItemService;
 import com.joseloya.torrexfitness.service.CartService;
 import com.joseloya.torrexfitness.service.CartServiceImpl;
 import com.joseloya.torrexfitness.service.CustomerService;
@@ -17,17 +18,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.persistence.SecondaryTable;
 import javax.servlet.http.HttpSession;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
 @Controller
 public class CartController {
     private CartService cartService;
     private CustomerService customerService;
+    private CartItemService cartItemService;
 
     @Autowired
-    public CartController(CartService cartService, CustomerService customerService) {
+    public CartController(CartService cartService,
+                          CustomerService customerService,
+                          CartItemService cartItemService) {
         this.cartService = cartService;
         this.customerService = customerService;
+        this.cartItemService = cartItemService;
     }
 
     @PostMapping("/saveCart")
@@ -51,13 +58,20 @@ public class CartController {
 
     @GetMapping("/showCustomerCart")
     public String showCustomerCart(Model model) {
-        if(!cartService.existsById(1L)) {
-            Cart cart = new Cart();
-            cart.setCustomer(customerService.getCustomerById(1L));
-            cartService.saveCart(cart);
-            model.addAttribute("customerCart", cartService.getCartById(1L));
+        if (!cartService.existsById(1L)) {
+            Cart cart = new Cart(); //instantiate a cart
+            cart.setCustomer(customerService.getCustomerById(1L)); //initialize cart.customer with an existing customer
+
+            Set<CartItem> cartItemSet = new HashSet<>(); //instantiate an empty HashSet
+            cart.setCartItemSet(cartItemSet); //initialize cart.cartItemSet with the empty HashSet
+
+            cartService.saveCart(cart); //persist Cart 1 to the DB
+            model.addAttribute("cartItemSet", cart.getCartItemSet()); //add the cartItemSet to the model
             return "user_shopping_cart";
         }
+
+        //By this point, Cart 1 is confirmed to exist
+        //However, it is uncertain if cart.CartItemSet is an empty HashSet or contains CartItem 1
         model.addAttribute("cartItemSet", cartService.getCartById(1L).getCartItemSet()); //add the cartItemSet to the model
         return "user_shopping_cart";
     }

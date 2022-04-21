@@ -2,6 +2,7 @@ package com.joseloya.torrexfitness.controller;
 
 import com.joseloya.torrexfitness.model.CartItem;
 import com.joseloya.torrexfitness.model.Product;
+import com.joseloya.torrexfitness.service.CartItemService;
 import com.joseloya.torrexfitness.service.CartService;
 import com.joseloya.torrexfitness.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +19,24 @@ import javax.validation.Valid;
 @Controller
 public class CartItemController {
 
-//    @Autowired
-//    private ProductService productService;
-//    private CartService cartService;
-
     private ProductService productService;
     private CartService cartService;
+    private CartItemService cartItemService;
 
     @Autowired
-    public CartItemController(ProductService productService, CartService cartService) {
+    public CartItemController(ProductService productService,
+                              CartService cartService,
+                              CartItemService cartItemService) {
         this.productService = productService;
         this.cartService = cartService;
+        this.cartItemService = cartItemService;
+    }
+
+    @GetMapping("/deleteCartItem/{id}")
+    public String deleteCartItem(@PathVariable(value = "id") Long id) {
+        cartService.getCartById(1L).getCartItemSet().remove(cartItemService.getCartItemById(1L));
+//        cartItemService.deleteCartItemById(id);
+        return "redirect:/showCustomerCart";
     }
 //
 //    @GetMapping("/index_products")
@@ -43,12 +51,6 @@ public class CartItemController {
 //            return "new_product";
 //        }
 //        cartItemService.saveCartItem(cartItem);
-//        return "redirect:/index_products";
-//    }
-//
-//    @GetMapping("/deleteProduct/{id}")
-//    public String deleteProduct(@PathVariable(value = "id") long id) {
-//        this.productService.deleteProductById(id);
 //        return "redirect:/index_products";
 //    }
 //

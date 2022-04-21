@@ -15,8 +15,7 @@ public class Cart {
     private Long id;
 
     //A Cart can have 0, 1, or many CartItems
-//    (mappedBy = "cart")
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<CartItem> cartItemSet;
 
     //One Cart belongs to One Customer

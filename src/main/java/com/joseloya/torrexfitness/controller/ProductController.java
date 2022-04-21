@@ -83,27 +83,47 @@ public class ProductController {
     @GetMapping("/showProductGallery")
     public String showProductGallery(Model model) {
         model.addAttribute("listProducts", productService.getAllProducts());
-//        model.addAttribute("cart_item", new Product());
         return "user_product_gallery";
     }
 
     @GetMapping("/addProductToCart")
     public String addProductToCart(Model model){
+
+        // Check if a Cart with ID #1 exists in the DB
+        // If not: create, initialize the properties, and persist a Cart with an ID of 1
         if(!cartService.existsById(1L)) {
-            Cart cart = new Cart();
-            cart.setCustomer(customerService.getCustomerById(1L));
-            cartService.saveCart(cart);
+            Cart cart = new Cart(); //instantiate a cart
+            cart.setCustomer(customerService.getCustomerById(1L)); //initialize cart.customer with an existing customer
+            Set<CartItem> cartItemSet = new HashSet<>(); //instantiate cartItemSet with an empty HashSet
+            cart.setCartItemSet(cartItemSet); //initialize cart.cartItemSet with the empty HashSet
+            cartService.saveCart(cart); //persist the cart to the DB
         }
 
-        CartItem cartItem = new CartItem(); // "property-empty" cartItem object
-        cartItem.setProduct(productService.getProductById(1L)); //set product property to first product
-        cartItemService.saveCartItem(cartItem);
+        // Check if CartItem #1 exists in the DB
+        // If not: create, initialize the properties, and persist a CartItem with an ID of 1
+        if(!cartItemService.existsById(1L)) {
+            CartItem cartItem = new CartItem(); //instantiate a cartItem
+            cartItem.setProduct(productService.getProductById(1L)); //initialize cartItem.product with an existing product
+            cartItemService.saveCartItem(cartItem); //persist cartItem to the DB
+        }
 
-        Set<CartItem> cartItemSet = new HashSet<>();
-        cartItemSet.add(cartItem);
-        cartService.getCartById(1L).setCartItemSet(cartItemSet);
+        // Check if Cart ID 1 contains CartItem ID  1
+        // If not: initialize the cartItemSet property of cart 1 so that it contains cartItem 1
+        if (!cartService.getCartById(1L).getCartItemSet().contains(cartItemService.getCartItemById(1L))) {
+            Set<CartItem> cartItemSet = new HashSet<>(); //instantiate cartItemSet with an empty HashSet
+            cartItemSet.add(cartItemService.getCartItemById(1L)); //add CartItem 1 to cartItemSet
+            Cart tempCart = cartService.getCartById(1L); //instantiate a cart
+            tempCart.setCartItemSet(cartItemSet); //initialize tempCart.cartItemSet with the cartItemSet containing CartItem 1
+            cartService.saveCart(tempCart);
+        }
 
-        model.addAttribute("cartItemSet", cartService.getCartById(1L).getCartItemSet()); //add the cartItemSet to the model
+        // By this point:
+        // 1. Cart 1 is initialized and persisted in the DB
+        // 2. CartItem 1 is initialized and persisted in the DB
+        // 3. The cartItemSet property of Cart 1 contains cartItem 1
+
+        // Add the current state of the cartItemSet property of Cart 1 to the model
+        model.addAttribute("cartItemSet", cartService.getCartById(1L).getCartItemSet());
         return "user_shopping_cart"; //go to the Customer's Cart
     }
 }

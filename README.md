@@ -14,10 +14,15 @@
 
 ## Progress Reports
 
+### 4/21/22 (85% Done)
+* Received help from Anthony, Ryan, Corey, and Eric in completing "Add to Cart" functionality
+* Received help from Sang in implementing "Delete Item from Cart" functionality
+* Work in progress: display the Subtotal, Tax, and Total of all items in the Cart
+
 ### 4/20/22 (80% Done)
-* implemented CartItemService, CartItemServiceImpl, and CartItemRepository
-* created web page for displaying cart items, subtotal, tax, and total
-* created new and modified existing handler methods to persist CartItems and update related tables as necessary
+* Implemented CartItemService, CartItemServiceImpl, and CartItemRepository
+* Created web page for displaying cart items, subtotal, tax, and total
+* Created new and modified existing handler methods to persist CartItems and update related tables as necessary
 
 ### 4/19/22 (75% Done)
 * Users that register for an account are now simultaneously added to the Customer table
@@ -36,37 +41,37 @@
 * Began implementing "Add to Cart" functionality
 
 ### 4/15/22 (60% Done)
-* updated all models to implement entity relationships according to DB schema
-* updated all models to implement entity relationships according to DB schema
-* database is now capable of storing relevant persisted data
-* revising app UI to a simpler version for ease of testing
+* Updated all models to implement entity relationships according to DB schema
+* Updated all models to implement entity relationships according to DB schema
+* Database is now capable of storing relevant persisted data
+* Revising app UI to a simpler version for ease of testing
 
 ### 4/14/22 (55% Done)
-* received help from Supamas to correct my DB schema. Changes involved:
-    * adding Order_Items table
-    * modifying existing tables to account for new field structure
-    * modified entity-relationships among tables
-    * added DB Schema diagram under resources/static/images/torrex_fitness_db_schema_final.PNG
-* revised Product CRUD operations
-* converted User model to Customer model since User and Customer should be treated as two different models
+* Received help from Supamas to correct my DB schema. Changes involved:
+    * Adding Order_Items table
+    * Modifying existing tables to account for new field structure
+    * Modified entity-relationships among tables
+    * Added DB Schema diagram under resources/static/images/torrex_fitness_db_schema_final.PNG
+* Revised Product CRUD operations
+* Converted User model to Customer model since User and Customer should be treated as two different models
 
 ### 4/13/22 (50% Done)
-* modified the Cart and CartItem models to include @OneToMany and @ManyToOne annotations respectively.
-* nearly completed with CRUD operations for Cart; need to refine
+* Modified the Cart and CartItem models to include @OneToMany and @ManyToOne annotations respectively.
+* Nearly completed with CRUD operations for Cart; need to refine
 * Researching how to add a list of CartItems to a Cart
 * Researching how to use @Transient to determine subTotal, tax, and total
-* images are causing issues with login; will simplify and exclude images in UI pages to assure functionality.
+* Images are causing issues with login; will simplify and exclude images in UI pages to assure functionality.
 
 ### 4/12/22 (40% Done)
-* improved User and Product Controllers
-* finished CRUD operations for User and Products models
-* created home page for Admin and SuperAdmin (needs styling)
-* received help from Ryan and improved transitions from one page to another using Thymeleaf
+* Improved User and Product Controllers
+* Finished CRUD operations for User and Products models
+* Created home page for Admin and SuperAdmin (needs styling)
+* Received help from Ryan and improved transitions from one page to another using Thymeleaf
 
 ### 4/11/22 (30% Done)
-* redesigned the models of my app. Still a work in progress.
-* rewrote some and still implementing all CRUD functions
-* received help from Ryan and Corey regarding security
+* Redesigned the models of my app. Still a work in progress.
+* Rewrote some and still implementing all CRUD functions
+* Received help from Ryan and Corey regarding security
 
 ## About this App
 

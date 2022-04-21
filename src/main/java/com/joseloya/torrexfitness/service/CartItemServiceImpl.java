@@ -19,6 +19,11 @@ public class CartItemServiceImpl implements CartItemService {
     }
 
     @Override
+    public boolean existsById(Long aLong) {
+        return this.cartItemRepository.existsById(aLong);
+    }
+
+    @Override
     public void saveCartItem(CartItem cartItem) {
         this.cartItemRepository.save(cartItem);
     }

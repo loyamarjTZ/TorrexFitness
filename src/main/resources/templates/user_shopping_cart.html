@@ -94,8 +94,9 @@
             <td th:text="${cartItem.product.quantity}"></td>
             <td>
                 <!--todo - implement th:href="@{/deleteProductFromCart} endpoint-->
-                <!--                <a class="btn btn-danger btn-sm" th:href="@{/deleteProduct/{id}(id=${product.id})}">Remove</a>-->
-                <a class="btn btn-danger btn-sm" th:href="@{/}">Remove</a>
+<!--                <a class="btn btn-danger btn-sm" th:href="@{/deleteProduct/{id}(id=${product.id})}">Remove</a>-->
+                <a class="btn btn-danger btn-sm"
+                   th:href="@{/deleteCartItem/{id}(id=${cartItem.id})}">Remove</a>
             </td>
         </tr>
         </tbody>
