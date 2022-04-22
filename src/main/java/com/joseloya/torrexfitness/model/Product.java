@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.Set;
@@ -30,7 +31,7 @@ public class Product {
 
     @Column
     @NotNull
-    @Range(min = 0L, max = 10000)
+    @Range(min = 1, max = 10000, message = "Price must be greater than or equal to 1")
     private Double price;
 
     @Column

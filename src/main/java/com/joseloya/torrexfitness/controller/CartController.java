@@ -16,14 +16,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.persistence.SecondaryTable;
-import javax.servlet.http.HttpSession;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 @Controller
 public class CartController {
+    private static final Double TAX_8_PERCENT = 0.08;
+
     private CartService cartService;
     private CustomerService customerService;
     private CartItemService cartItemService;
@@ -58,6 +57,12 @@ public class CartController {
 
     @GetMapping("/showCustomerCart")
     public String showCustomerCart(Model model) {
+        Double subtotal = 0.0;
+        Double tax = 0.0;
+        Double total = 0.0;
+
+        // check if cart 1 exists in the DB
+        // if not: instantiate, initialize, and persist cart 1
         if (!cartService.existsById(1L)) {
             Cart cart = new Cart(); //instantiate a cart
             cart.setCustomer(customerService.getCustomerById(1L)); //initialize cart.customer with an existing customer
@@ -66,12 +71,42 @@ public class CartController {
             cart.setCartItemSet(cartItemSet); //initialize cart.cartItemSet with the empty HashSet
 
             cartService.saveCart(cart); //persist Cart 1 to the DB
-            model.addAttribute("cartItemSet", cart.getCartItemSet()); //add the cartItemSet to the model
+//            model.addAttribute("cartItemSet", cart.getCartItemSet()); //add the cartItemSet to the model
+            model.addAttribute("subtotal", subtotal);
+            model.addAttribute("tax", tax);
+            model.addAttribute("total", total);
             return "user_shopping_cart";
         }
 
-        //By this point, Cart 1 is confirmed to exist
-        //However, it is uncertain if cart.CartItemSet is an empty HashSet or contains CartItem 1
+        // check if the cartItemSet property of cart 1 contains at least one cartItem
+        // if so: calculate the subtotal, tax, and total to be paid
+        // otherwise: subtotal, tax, and total must be 0
+        if (cartService.getCartById(1L).getCartItemSet().size() >= 1) {
+            for (CartItem i : cartService.getCartById(1L).getCartItemSet()) {
+                subtotal += i.getProduct().getPrice();
+            }
+            tax = subtotal * TAX_8_PERCENT;
+            total = subtotal + tax;
+
+            // By this point:
+            // 1. Cart 1 is confirmed to exist
+            // 2. cartItemSet property of Cart 1 contains at least one cartItem
+            // 3. subtotal, tax, and total must be greater than 0, assuming cartItem.product.price is also greater than 0
+
+            model.addAttribute("subtotal", subtotal);
+            model.addAttribute("tax", tax);
+            model.addAttribute("total", total);
+            model.addAttribute("cartItemSet", cartService.getCartById(1L).getCartItemSet()); //add the cartItemSet to the model
+            return "user_shopping_cart";
+        }
+
+        // By this point:
+        // 1. Cart 1 is confirmed to exist
+        // 2. cartItemSet property of Cart 1 contains no cartItems
+        // 3. subtotal, tax, and total are 0
+        model.addAttribute("subtotal", subtotal);
+        model.addAttribute("tax", tax);
+        model.addAttribute("total", total);
         model.addAttribute("cartItemSet", cartService.getCartById(1L).getCartItemSet()); //add the cartItemSet to the model
         return "user_shopping_cart";
     }

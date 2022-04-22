@@ -88,6 +88,11 @@ public class ProductController {
 
     @GetMapping("/addProductToCart")
     public String addProductToCart(Model model){
+        final Double TAX_8_PERCENT = 0.08;
+
+        Double subtotal = 0.00;
+        Double tax = 0.00;
+        Double total = 0.00;
 
         // Check if a Cart with ID #1 exists in the DB
         // If not: create, initialize the properties, and persist a Cart with an ID of 1
@@ -121,6 +126,16 @@ public class ProductController {
         // 1. Cart 1 is initialized and persisted in the DB
         // 2. CartItem 1 is initialized and persisted in the DB
         // 3. The cartItemSet property of Cart 1 contains cartItem 1
+
+        for (CartItem i : cartService.getCartById(1L).getCartItemSet()) {
+            subtotal += i.getProduct().getPrice();
+        }
+        tax = subtotal * TAX_8_PERCENT;
+        total = subtotal + tax;
+
+        model.addAttribute("subtotal", subtotal);
+        model.addAttribute("tax", tax);
+        model.addAttribute("total", total);
 
         // Add the current state of the cartItemSet property of Cart 1 to the model
         model.addAttribute("cartItemSet", cartService.getCartById(1L).getCartItemSet());

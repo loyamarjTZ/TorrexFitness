@@ -111,15 +111,15 @@
         <thead>
         <tr>
             <th>Subtotal</th>
-            <td>*subtotal goes here*</td>
+            <td th:text="'$'+${subtotal}"></td>
         </tr>
         <tr>
             <th>Tax</th>
-            <td>*tax goes here*</td>
+            <td th:text="'$'+${tax}"></td>
         </tr>
         <tr>
             <th>Total</th>
-            <td>*total goes here*</td>
+            <td th:text="'$'+${total}"></td>
         </tr>
         </thead>
     </table>

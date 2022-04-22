@@ -45,7 +45,7 @@ public class Customer {
     private String password;
 
     //One Customer has One Cart
-    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "customer")
     @PrimaryKeyJoinColumn
     private Cart cart;
 

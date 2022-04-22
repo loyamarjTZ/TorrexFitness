@@ -35,7 +35,7 @@ public class CartItemController {
     @GetMapping("/deleteCartItem/{id}")
     public String deleteCartItem(@PathVariable(value = "id") Long id) {
         cartService.getCartById(1L).getCartItemSet().remove(cartItemService.getCartItemById(1L));
-//        cartItemService.deleteCartItemById(id);
+        cartItemService.deleteCartItemById(id);
         return "redirect:/showCustomerCart";
     }
 //
