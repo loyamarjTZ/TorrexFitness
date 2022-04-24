@@ -50,9 +50,9 @@ public class Customer {
     private Cart cart;
 
     //One Customer can have 0, 1, or Many Orders
-    @OneToMany(mappedBy = "customer")
+//    @OneToMany(mappedBy = "customer")
 //    @OneToMany(targetEntity = Order.class, cascade = CascadeType.ALL)
-    private Set<Order> orderSet;
+//    private Set<Order> orderSet;
 
     public Customer() {
     }
@@ -105,13 +105,13 @@ public class Customer {
         this.cart = cart;
     }
 
-    public Set<Order> getOrderSet() {
-        return orderSet;
-    }
+//    public Set<Order> getOrderSet() {
+//        return orderSet;
+//    }
 
-    public void setOrderSet(Set<Order> orderSet) {
-        this.orderSet = orderSet;
-    }
+//    public void setOrderSet(Set<Order> orderSet) {
+//        this.orderSet = orderSet;
+//    }
 
     @Override
     public String toString() {
@@ -122,7 +122,6 @@ public class Customer {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", cart=" + cart +
-                ", orderSet=" + orderSet +
                 '}';
     }
 }

@@ -20,7 +20,7 @@
   has been clarified that project completion should be determined by the completion of the Technical Requirements and
   Grading Rubric provided at the beginning of training.
 * With this in mind, and after today's progress, project is 80% complete.
-* Regarding today's progress: display of subtotal, price, and subtotal in the user_shopping_cart page is complete
+* Regarding today's progress: display of subtotal, tax, and total in the user_shopping_cart page is complete
 * I am happy to share that MVP functionality is now complete! All that remains is the following:
     * Complete all remaining requirements from the Technical Requirements and Grading Rubric documents
     * Review and refactor all source code to remove redundant statements

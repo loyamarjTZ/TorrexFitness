@@ -111,15 +111,15 @@
         <thead>
         <tr>
             <th>Subtotal</th>
-            <td th:text="'$'+${subtotal}"></td>
+            <td th:text="'$'+${#numbers.formatDecimal(subtotal, 0, 'COMMA', 2, 'POINT')}"></td>
         </tr>
         <tr>
             <th>Tax</th>
-            <td th:text="'$'+${tax}"></td>
+            <td th:text="'$'+${#numbers.formatDecimal(tax, 0, 'COMMA', 2, 'POINT')}"></td>
         </tr>
         <tr>
             <th>Total</th>
-            <td th:text="'$'+${total}"></td>
+            <td th:text="'$'+${#numbers.formatDecimal(total, 0, 'COMMA', 2, 'POINT')}"></td>
         </tr>
         </thead>
     </table>
