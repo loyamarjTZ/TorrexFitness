@@ -145,7 +145,7 @@
   life of this project, either because I was not getting my desired outcome or I discovered a simpler implementation. I
   was particularly challenged by determining the entity relationships among my tables and implementing them using the
   @ManyToOne, @OneToMany, and @OneToOne annotations.
-* Another challenge I encountered was using Thymeleaf to display on my web pages.
+* Another challenge I encountered was using Thymeleaf to display data on my web pages.
 
 ## Lessons Learned
 
