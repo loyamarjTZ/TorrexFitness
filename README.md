@@ -149,8 +149,8 @@
 
 ## Lessons Learned
 
-* **Prioritization is a skill.** I "bit off more than I could chew" when first declaring the features of my application, and
-  I spent the last two weeks of training prioritizing only the features that contribute towards my MVP. As with any
+* **Prioritization is a skill.** I "bit off more than I could chew" when first declaring the features of my application,
+  and I spent the last two weeks of training prioritizing only the features that contribute towards my MVP. As with any
   skill, I expect to improve my prioritization skills with more practice and experience.
 * **Seek help often.** I received help from both my instructor and my peers on several occasions, to whom I owe a huge
   thanks for saving me time and sparing me headaches. Communicating our impediments during daily stand up often led to
@@ -162,13 +162,9 @@
 
 ## Future Improvements
 
-## Technical Challenges
+* Implement My Orders, All Orders, and multiple CartItems functionality.
 
-* Implementing the Torrex Fitness database was the most challenging aspect of this project. I regularly found myself
-  modifying models according to what I thought was correct at the time. I modified my tables at least 3 times during the
-  life of this project, either because I was not getting my desired outcome or I discovered a simpler implementation. I
-  was particularly challenged by determining the Entity Relationships among my tables and implementing them using the
-  @ManyToOne, @OneToMany, and @OneToOne annotations.
-* Another challenge I encountered was using Thymeleaf to make my web pages dynamic.
+## Potential Applications
 
-## Future Improvements
+* Doctors need a convenient way to request supplies for their patients, such as crutches, TENS units, slings, leg
+  braces, etc. and my application could serve as a starting point for an in-house, supply-ordering service.
