@@ -7,12 +7,23 @@
 * [Technical Challenges](#Technical-Challenges)
 * [Lessons Learned](#Lessons-Learned)
 * [Future Improvements](#Future-Improvements)
-* [Technical Architecture](http://)
-* [Wire Frame](http://)
-* [Schema Diagram](http://)
+* [Technical Architecture](https://github.com/loyamarjTZ/TorrexFitness/blob/main/torrex_fitness_tech_stack.PNG)
+* [Application Wireframe](https://github.com/loyamarjTZ/TorrexFitness/blob/main/Torrex%20Fitness%20Wireframes.pdf)
+* [Database Schema Diagram](https://github.com/loyamarjTZ/TorrexFitness/blob/main/torrex_fitness_db_schema.PNG)
 * [Contact Me](mailto:jose.loyamarquez@outlook.com)
 
 ## Progress Reports
+
+### 4/24/22 (90% Done)
+
+* Uploaded the following documents:
+    * Database schema diagram
+    * Technology stack diagram
+    * Application Wireframe
+* Formatted the values of subtotal, tax, and total
+* Omitted, but not deleted, the Order and OrderItems models; will have to be implemented as a future feature.
+* Added image carousel to the Product Gallery web page
+* All that remains is to complete JUnit testing and refactor redundant source code
 
 ### 4/22/22 (80% Done)
 
