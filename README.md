@@ -14,6 +14,13 @@
 
 ## Progress Reports
 
+### 4/25/22 (95% Done)
+
+* Received help from Ryan, Corey, and Sang to add Service and Repository JUnit testing
+* Received help from Jonathan and Dan updating application.properties to create the torrex_fitness database if it
+  doesn't exist
+* Project is nearly complete, just need to satisfy a few more requirements and refactor source code for submission
+
 ### 4/24/22 (90% Done)
 
 * Uploaded the following documents:

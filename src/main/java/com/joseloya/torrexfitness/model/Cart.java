@@ -59,4 +59,17 @@ public class Cart {
                 ", customer=" + customer +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cart cart = (Cart) o;
+        return Objects.equals(id, cart.id) && Objects.equals(cartItemSet, cart.cartItemSet) && Objects.equals(customer, cart.customer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, cartItemSet, customer);
+    }
 }

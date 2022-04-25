@@ -33,14 +33,6 @@ public class CartItemServiceImpl implements CartItemService {
 
         return cartItemRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("CartItem not found"));
-//        Optional<CartItem> optional = cartItemRepository.findById(id);
-//        CartItem cartItem = null;
-//        if (optional.isPresent()) {
-//            cartItem = optional.get();
-//        } else {
-//            throw new RuntimeException(" CartItem not found for id :: " + id);
-//        }
-//        return cartItem;
     }
 
     @Override

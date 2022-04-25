@@ -15,7 +15,7 @@ public class CartServiceImpl implements CartService {
     private CartRepository cartRepository;
 
     @Override
-    public List < Cart > getAllCarts() {
+    public List<Cart> getAllCarts() {
         return cartRepository.findAll();
     }
 
@@ -24,11 +24,13 @@ public class CartServiceImpl implements CartService {
         this.cartRepository.save(cart);
     }
 
-    public boolean existsById(Long aLong) { return this.cartRepository.existsById(aLong); };
+    public boolean existsById(Long aLong) {
+        return this.cartRepository.existsById(aLong);
+    }
 
     @Override
     public Cart getCartById(Long id) {
-        Optional <Cart> optional = cartRepository.findById(id);
+        Optional<Cart> optional = cartRepository.findById(id);
         Cart cart = null;
         if (optional.isPresent()) {
             cart = optional.get();
