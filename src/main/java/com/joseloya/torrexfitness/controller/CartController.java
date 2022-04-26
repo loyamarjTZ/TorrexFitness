@@ -110,18 +110,4 @@ public class CartController {
         model.addAttribute("cartItemSet", cartService.getCartById(1L).getCartItemSet()); //add the cartItemSet to the model
         return "user_shopping_cart";
     }
-
-//    @GetMapping("/index_carts")
-//    public String getAllCarts(Model model) {
-//        model.addAttribute("listCarts", cartService.getAllCarts());
-//        return "all_carts";
-//    }
-
-//    @GetMapping("/showNewCartForm")
-//    public String showNewCartForm(Model model) {
-//        Cart cart = new Cart();
-//        model.addAttribute("cart", cart);
-//        return "new_cart";
-//    }
-
 }

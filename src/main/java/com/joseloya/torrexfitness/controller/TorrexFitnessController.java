@@ -12,8 +12,6 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class TorrexFitnessController {
-
-    //spring security mappings
     @GetMapping("/")
     public String viewSecurityLogin1() {
         return "index";
@@ -30,32 +28,4 @@ public class TorrexFitnessController {
         httpSession.invalidate();
         return "redirect:/";
     }
-
-//
-//    //original project mappings
-//    @GetMapping("/h")
-//    public String viewHomePageFirstTime() {
-//        return "indexTF";
-//    }
-//
-//    @RequestMapping("/hom")
-//    public String viewHomePageAgain() {
-//        return "indexTF";
-//    }
-//
-//    @RequestMapping("/sign-in")
-//    public String viewSignInPage() {
-//        return "sign-in";
-//    }
-//
-//    @RequestMapping("/register")
-//    public String viewRegisterPage() {
-//        return "register";
-//    }
-//
-//    @RequestMapping("/cart")
-//    public String viewCartPage() {
-//        return "cart";
-//    }
-//
 }

@@ -25,10 +25,6 @@ import java.util.Set;
 @Controller
 public class ProductController {
 
-//    @Autowired
-//    private ProductService productService;
-//    private CartService cartService;
-
     private ProductService productService;
     private CartService cartService;
     private CartItemService cartItemService;

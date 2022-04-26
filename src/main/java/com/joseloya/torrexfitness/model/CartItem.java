@@ -18,14 +18,6 @@ public class CartItem {
     @JoinColumn(name = "product_id")
     private Product product;
 
-//    @Column
-//    private Integer quantity;
-
-    //0, 1, or Many CartItems can belong to 1 Cart
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "cart_id", nullable = false)
-//    private Cart cart;
-
     public CartItem() {
     }
 
@@ -36,22 +28,6 @@ public class CartItem {
     public void setId(Long id) {
         this.id = id;
     }
-
-//    public Integer getQuantity() {
-//        return quantity;
-//    }
-//
-//    public void setQuantity(Integer quantity) {
-//        this.quantity = quantity;
-//    }
-
-//    public Cart getCart() {
-//        return cart;
-//    }
-//
-//    public void setCart(Cart cart) {
-//        this.cart = cart;
-//    }
 
     public Product getProduct() {
         return product;
@@ -65,9 +41,20 @@ public class CartItem {
     public String toString() {
         return "CartItem{" +
                 "id=" + id +
-//                ", quantity=" + quantity +
-//                ", cart=" + cart +
                 ", product=" + product +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CartItem cartItem = (CartItem) o;
+        return Objects.equals(id, cartItem.id) && Objects.equals(product, cartItem.product);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, product);
     }
 }

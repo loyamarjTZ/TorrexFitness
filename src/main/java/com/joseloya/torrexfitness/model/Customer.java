@@ -49,11 +49,6 @@ public class Customer {
     @PrimaryKeyJoinColumn
     private Cart cart;
 
-    //One Customer can have 0, 1, or Many Orders
-//    @OneToMany(mappedBy = "customer")
-//    @OneToMany(targetEntity = Order.class, cascade = CascadeType.ALL)
-//    private Set<Order> orderSet;
-
     public Customer() {
     }
 

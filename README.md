@@ -14,6 +14,14 @@
 
 ## Progress Reports
 
+### 4/26/22 (100% Done)
+
+* Deleted unnecessary web pages and comments
+* Added CustomerRestController
+* Formatted and refactored source code
+* Added "How to use this App" section
+* Project is ready for submission!
+
 ### 4/25/22 (95% Done)
 
 * Received help from Ryan, Corey, and Sang to add Service and Repository JUnit testing
@@ -135,7 +143,7 @@
     * sign in to their account
     * add products to their cart
     * remove products from their cart
-    * complete an order
+    * complete an order (tbd)
 
 
 * Admins will be able to:
@@ -150,7 +158,7 @@
     * have the same functionality as an Admin
     * delete a user
     * delete a product
-    * edit an order
+    * edit an order (tbd)
 
 ## Technical Challenges
 
@@ -159,6 +167,8 @@
   life of this project, either because I was not getting my desired outcome or I discovered a simpler implementation. I
   was particularly challenged by determining the entity relationships among my tables and implementing them using the
   @ManyToOne, @OneToMany, and @OneToOne annotations.
+
+
 * Another challenge I encountered was using Thymeleaf to display data on my web pages.
 
 ## Lessons Learned
@@ -166,9 +176,13 @@
 * **Prioritization is a skill.** I "bit off more than I could chew" when first declaring the features of my application,
   and I spent the last two weeks of training prioritizing only the features that contribute towards my MVP. As with any
   skill, I expect to improve my prioritization skills with more practice and experience.
+
+
 * **Seek help often.** I received help from both my instructor and my peers on several occasions, to whom I owe a huge
   thanks for saving me time and sparing me headaches. Communicating our impediments during daily stand up often led to
   group discussions, which would lead to proposing solutions.
+
+
 * **Create a sustainable work routine by taking regular breaks.** Although the pace of the bootcamp subjected me to the
   occasional burnout, I would recover faster by dedicating an entire day, usually Saturdays, to unwind. I would return
   from these breaks with a new approach on how to resolve my bugs and resolved them faster than if I had attempted to
