@@ -3,7 +3,7 @@
 ## Table of Contents
 
 * [Progress Reports](#Progress-Reports)
-* [About this App](#About-this-App)
+* [How to Use this App](#How-to-Use-this-App)
 * [Technical Challenges](#Technical-Challenges)
 * [Lessons Learned](#Lessons-Learned)
 * [Future Improvements](#Future-Improvements)
@@ -115,11 +115,18 @@
 * Rewrote some and still implementing all CRUD functions
 * Received help from Ryan and Corey regarding security
 
-## About this App
+## How to Use this App
 
-### What is Torrex Fitness?
-
-* Torrex Fitness is a simple Ecommerce application that sells gym equipment.
+1. Download/clone this project
+2. Find the **application.properties** file under the **resources** directory and modify the following fields:
+    * spring.datasource.username= **<your_mariadb_username>**
+    * spring.datasource.password= **<your_mariadb_password>**
+3. After updating the default username and password with your own, run the
+   **TorrexFitnessApplication** class under the **com.joseloya.torrexfitness** directory. You may need to wait a couple
+   of seconds for the TomCat server to start running.
+4. Once the TomCat server is up and running, open a private browser window and type **localhost:8080/** in the address
+   bar.
+5. The application Sign In page should appear, and you may begin interacting with the application.
 
 ### User Stories
 

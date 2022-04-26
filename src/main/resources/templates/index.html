@@ -3,8 +3,6 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
 >
-
-
 <head>
     <meta charset="UTF-8">
     <title>True Index</title>
@@ -61,7 +59,8 @@
                     <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuLink">
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/}">Home</a></li>
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_products}">All Products</a></li>
-                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_customers}">All Customers</a></li>
+                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_customers}">All Customers</a>
+                        </li>
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_orders}">All Orders</a></li>
                     </ul>
                 </div>
@@ -73,7 +72,6 @@
     </div>
 </nav>
 <!--end navbar-->
-
 <!--admin main menu-->
 <div class="container mt-4">
     <h1 class="py-1">
@@ -85,11 +83,6 @@
     <a th:href="@{/index_customers}" class="btn btn-primary my-3 col-3">View all Customers</a><br>
     <a th:href="@{/index_users}" class="btn btn-primary my-3 col-3">View all Orders (Disabled)</a><br>
 </div>
-<!--end admin main menu-->
-<!--<p>-->
-<!--    Welcome <span sec:authentication="principal.username">com.joseloya.torrexfitness.security.User</span>-->
-<!--</p>-->
-
 <!--Bootstrap 5 scripts-->
 <script
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -102,6 +95,5 @@
         crossorigin="anonymous"
 ></script>
 <!--end Bootstrap 5 scripts-->
-
 </body>
 </html>

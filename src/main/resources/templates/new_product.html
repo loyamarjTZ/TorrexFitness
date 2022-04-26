@@ -56,7 +56,8 @@
                     <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuLink">
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/}">Home</a></li>
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_products}">All Products</a></li>
-                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_customers}">All Customers</a></li>
+                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_customers}">All Customers</a>
+                        </li>
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_orders}">All Orders</a></li>
                     </ul>
                 </div>
@@ -68,7 +69,7 @@
     </div>
 </nav>
 <!--end navbar-->
-
+<!--add product form-->
 <div class="container mt-4">
     <h1 class="py-1">Add Product</h1>
     <hr>
@@ -84,9 +85,10 @@
         <input type="text" th:field="*{price}" placeholder="Price" class="form-control mb-4 col-4">
 
         <button type="submit" class="btn btn-primary col-2">Add Product</button>
-        <a class="btn btn-outline-secondary col-1" th:href="@{/index_products}" >Cancel</a>
+        <a class="btn btn-outline-secondary col-1" th:href="@{/index_products}">Cancel</a>
     </form>
 </div>
+<!--end add product form-->
 <!--Bootstrap 5 scripts-->
 <script
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

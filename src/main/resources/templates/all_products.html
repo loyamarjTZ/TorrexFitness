@@ -12,7 +12,6 @@
     />
 </head>
 <body>
-
 <!--navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-warning shadow-sm">
     <div class="container">
@@ -57,7 +56,8 @@
                     <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuLink">
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/}">Home</a></li>
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_products}">All Products</a></li>
-                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_customers}">All Customers</a></li>
+                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_customers}">All Customers</a>
+                        </li>
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_orders}">All Orders</a></li>
                     </ul>
                 </div>
@@ -69,7 +69,7 @@
     </div>
 </nav>
 <!--end navbar-->
-
+<!--all products table-->
 <div class="container mt-4">
     <h1 class="py-1">All Products</h1>
     <hr>
@@ -98,10 +98,7 @@
         </tbody>
     </table>
 </div>
-<!--<div class="container my-2">-->
-<!--    <a th:href="@{/logout}" class="btn btn-primary btn-sm mb-3"> Log out </a> <br>-->
-<!--    <a th:href="@{/}" class="btn btn-primary btn-sm mb-3"> Back to Home </a> <br>-->
-<!--</div>-->
+<!--end all products table-->
 <!--Bootstrap 5 scripts-->
 <script
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

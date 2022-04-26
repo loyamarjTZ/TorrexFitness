@@ -1,4 +1,3 @@
-
 // modal: Add to Cart
 var myModal = document.getElementById('myModal')
 var myInput = document.getElementById('myInput')

@@ -12,7 +12,6 @@
     />
 </head>
 <body>
-
 <!--navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-warning shadow-sm">
     <div class="container">
@@ -57,7 +56,8 @@
                     <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuLink">
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/}">Home</a></li>
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_products}">All Products</a></li>
-                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_customers}">All Customers</a></li>
+                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_customers}">All Customers</a>
+                        </li>
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_orders}">All Orders</a></li>
                     </ul>
                 </div>
@@ -69,7 +69,7 @@
     </div>
 </nav>
 <!--end navbar-->
-
+<!--add customer form-->
 <div class="container mt-4">
     <h1 class="py-1">Add Customer</h1>
     <hr>
@@ -88,9 +88,10 @@
         <input type="text" th:field="*{password}" placeholder="Password" class="form-control mb-4 col-3">
 
         <button type="submit" class="btn btn-primary col-2"> Save Customer</button>
-        <a class="btn btn-outline-secondary col-1" th:href="@{/index_customers}" >Cancel</a>
+        <a class="btn btn-outline-secondary col-1" th:href="@{/index_customers}">Cancel</a>
     </form>
 </div>
+<!--end add customer form-->
 <!--Bootstrap 5 scripts-->
 <script
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

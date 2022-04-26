@@ -12,7 +12,6 @@
     />
 </head>
 <body>
-
 <!--navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-warning shadow-sm">
     <div class="container">
@@ -57,7 +56,8 @@
                     <ul class="dropdown-menu bg-warning" aria-labelledby="dropdownMenuLink">
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/}">Home</a></li>
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_products}">All Products</a></li>
-                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_customers}">All Customers</a></li>
+                        <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_customers}">All Customers</a>
+                        </li>
                         <li><a class="btn btn-warning nav-link mx-1" th:href="@{/index_orders}">All Orders</a></li>
                     </ul>
                 </div>
@@ -69,7 +69,7 @@
     </div>
 </nav>
 <!--end navbar-->
-
+<!--update product form-->
 <div class="container">
     <h1 class="my-4">Update Product</h1>
     <hr>
@@ -89,6 +89,7 @@
         <a class="btn btn-outline-secondary col-1" th:href="@{/index_products}">Cancel</a>
     </form>
 </div>
+<!--end update product form-->
 <!--Bootstrap 5 scripts-->
 <script
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
